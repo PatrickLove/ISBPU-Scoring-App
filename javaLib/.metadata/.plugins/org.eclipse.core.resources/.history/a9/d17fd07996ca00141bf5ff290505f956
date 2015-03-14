@@ -1,0 +1,17 @@
+package com.ispbu.scoring;
+
+public class Game {
+	Frame[] frames = new Frame[] {
+			new Frame(),
+			new Frame(),
+			new Frame(),
+			new Frame(),
+			new Frame(),
+			new Frame(),
+			new Frame(),
+			new Frame(),
+			new Frame(),
+			new TenthFrame()
+	};
+
+}

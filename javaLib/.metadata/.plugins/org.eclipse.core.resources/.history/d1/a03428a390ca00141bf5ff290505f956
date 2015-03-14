@@ -1,0 +1,13 @@
+package com.ispbu.scoring;
+
+public class Frame {
+	
+	private int throw1;
+	private int throw2;
+	
+	
+	public Score score(){
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.ispbu.scoring;
+
+public class GameScore extends Score {
+
+}
