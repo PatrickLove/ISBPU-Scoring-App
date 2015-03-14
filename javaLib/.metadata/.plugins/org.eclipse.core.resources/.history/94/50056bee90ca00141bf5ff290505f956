@@ -1,5 +1,0 @@
-package com.ispbu.scoring;
-
-public class TenthFrame extends Frame {
-
-}
