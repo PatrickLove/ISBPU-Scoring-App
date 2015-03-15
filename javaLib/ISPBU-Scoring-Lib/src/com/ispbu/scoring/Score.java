@@ -8,7 +8,11 @@ public class Score {
 	private int value;
 	private int extraThrows;
 	private int frameNum = -1;
+	private int baseScore = -1;
 	
+	public void setBaseScore(int baseScore) {
+		this.baseScore = baseScore;
+	}
 	public Score(int val, int eThrows){
 		this.value = val;
 		this.extraThrows = eThrows;
@@ -39,6 +43,10 @@ public class Score {
 
 	public int getValue() {
 		return value;
+	}
+	
+	public int getTotalScore(){
+		return baseScore + value;
 	}
 
 	public int getRemainingThrows() {

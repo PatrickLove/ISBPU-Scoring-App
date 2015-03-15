@@ -4,14 +4,12 @@ public class GameScore {
 	
 	private int totalValue;
 	private int frames;
-	private int extraThrows;
 	private int[] frameScores;
 	
 	
-	public GameScore(int value, int frames, int extraThrows, int[] frameScores){
+	public GameScore(int value, int frames, int[] frameScores){
 		this.totalValue = value;
 		this.frames = frames;
-		this.extraThrows = extraThrows;
 		this.frameScores = frameScores;
 	}
 	
@@ -23,11 +21,7 @@ public class GameScore {
 		return frameScores;
 	}
 	
-	public int getExtraThrows(){
-		return extraThrows;
-	}
-	
-	public int getFrames(){
+	public int getFramesScored(){
 		return frames;
 	}
 

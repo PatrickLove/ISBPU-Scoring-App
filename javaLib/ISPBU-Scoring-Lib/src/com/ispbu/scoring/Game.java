@@ -24,11 +24,20 @@ public class Game {
 		return currentFrame == FRAME_DONE;
 	}
 	
+	public Frame getFrame(int num){
+		if(num < 0 || num > 9){
+			return null;
+		}
+		else{
+			return frames[num];
+		}
+	}
+	
 	public GameScore score(){
 		int totalValue = 0;
 		ArrayList<Score> toScore = new ArrayList<>();
-		int[] frameScores = new int[currentFrame];
-		for(int f = 0; f < currentFrame; f++){
+		int[] frameScores = new int[10];
+		for(int f = 0; f < 10; f++){
 			Frame currentLoopFrame = frames[f];
 			ArrayList<Score> toRemove = new ArrayList<Score>();
 			for(Score toS : toScore){
@@ -36,7 +45,7 @@ public class Game {
 				if(!toS.isEvaluated()){
 					currentLoopFrame.addExtraThrowsTo(toS);
 					totalValue += toS.getValue()-initialVal;
-					frameScores[toS.getFrameNum()] = totalValue;
+					frameScores[toS.getFrameNum()] = toS.getTotalScore();
 				}
 				if(toS.isEvaluated()){
 					toRemove.add(toS);
@@ -52,17 +61,13 @@ public class Game {
 			}
 			else{
 				s.setFrameNum(f);
-				totalValue += 10;
-				frameScores[f] = totalValue;
+				s.setBaseScore(totalValue);
+				totalValue += s.getValue();
+				frameScores[f] = s.getTotalScore();
 				toScore.add(s);
 			}
-			
 		}
-		int remainingThrows = 0;
-		for(Score toS : toScore){
-			remainingThrows += toS.getRemainingThrows();
-		}
-		return new GameScore(totalValue, currentFrame, remainingThrows, frameScores);
+		return new GameScore(totalValue, currentFrame, frameScores);
 	}
 	
 	public boolean makeThrow(int pins){
@@ -73,11 +78,29 @@ public class Game {
 		}
 		return ret;
 	}
+	
+	public boolean makeThrows(int...pins){
+		boolean ret = true;
+		for(int i : pins){
+			if(!makeThrow(i)) { ret = false; }
+		}
+		return ret;
+	}
 
 	private void updateCurrentFrameIfNecessary() {
 		if(frames[currentFrame].isFinished()){
 			currentFrame++;
 		}
+	}
+	
+	public boolean canStrike(){
+		if(isFinished()) return false;
+		return frames[currentFrame].canStrike();
+	}
+	
+	public boolean canSpare(){
+		if(isFinished()) return false;
+		return frames[currentFrame].canSpare();
 	}
 
 	@Override

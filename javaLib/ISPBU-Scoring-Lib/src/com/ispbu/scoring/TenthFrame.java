@@ -5,7 +5,21 @@ public class TenthFrame extends Frame {
 	private int throw3 = NO_SCORE;
 
 	public Score score(){
-		return new Score(throw1+throw2+throw3);
+		return new Score(Math.max(throw1, 0)+Math.max(throw2, 0)+Math.max(throw3, 0));
+	}
+	
+	public boolean canStrike(){
+		if(throw1 == NO_SCORE) return true;
+		else if(throw2 == NO_SCORE) return throw1 == 10;
+		else if(throw3 == NO_SCORE) return throw1 + throw2 == 10 || throw2 == 10;
+		return false;
+	}
+	
+	public boolean canSpare(){
+		if(throw1 == NO_SCORE) return false;
+		else if(throw2 == NO_SCORE) return throw1 != 10;
+		else if(throw3 == NO_SCORE) return throw1 == 10 && throw2 != 10;
+		return false;
 	}
 	
 	public boolean isStrike(){
@@ -27,7 +41,13 @@ public class TenthFrame extends Frame {
 	
 	public boolean doThrow(int score){
 		if(!isFinished() && score <= 10){
-			if(throw1 == NO_SCORE){
+			if(score == MAKE_SPARE){
+				if(!canSpare()) return false;
+				if(throw2 == NO_SCORE) throw2 = 10-throw1;
+				else if(throw3 == NO_SCORE) throw3 = 10-throw2;
+				else return false;
+			}
+			else if(throw1 == NO_SCORE){
 				throw1 = score;
 			}
 			else if(throw2 == NO_SCORE){
@@ -45,39 +65,24 @@ public class TenthFrame extends Frame {
 	
 	@Override
 	public String toString() {
-		if(throw1 != NO_SCORE){
-			String ret = "";
-			ret += new ThrowFormatter(throw1).format();
-			if(throw2 != NO_SCORE){
-				ret += new ThrowFormatter(	throw1==10 ? ThrowFormatter.NO_PREV_THROW : throw1,
-											throw2).format();
-				if(throw3 != NO_SCORE){
-					ret += new ThrowFormatter(	(throw2 == 10 || throw1+throw2==10) ? 
-													ThrowFormatter.NO_PREV_THROW :
-													throw2,
-												throw3).format();
-				}
-				else{
-					ret += " ";
-				}
-			}
-			else{
-				ret += "  ";
-			}
-			return ret;
-		}
-		else{
-			return "  ";
-		}
+		String ret = "";
+		ret += new ThrowFormatter(throw1).format();
+		ret += new ThrowFormatter(	throw1==10 ? ThrowFormatter.NO_PREV_THROW : throw1,
+									throw2).format();
+		ret += new ThrowFormatter(	(throw2 == 10 || throw1+throw2==10) ? 
+										ThrowFormatter.NO_PREV_THROW :
+										throw2,
+									throw3).format();
+		return ret;
 	}
 	
 	public void addExtraThrowsTo(Score toS) {
-		if(isFinished() && !toS.isEvaluated()){
-			toS.addExtraThrow(throw1);
+		if(!toS.isEvaluated()){
+			toS.addExtraThrow(Math.max(throw1, 0));
 			if(!toS.isEvaluated()){
-				toS.addExtraThrow(throw2);
+				toS.addExtraThrow(Math.max(throw2, 0));
 				if(!toS.isEvaluated()){
-					toS.addExtraThrow(throw3);
+					toS.addExtraThrow(Math.max(throw3, 0));
 				}
 			}
 		}

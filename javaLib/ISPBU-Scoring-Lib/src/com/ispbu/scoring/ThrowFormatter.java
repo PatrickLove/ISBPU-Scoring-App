@@ -5,6 +5,7 @@ public class ThrowFormatter {
 	private static final String STRIKE = "X";
 	private static final String SPARE = "/";
 	private static final String OPEN = "-";
+	private static final String NONE = " ";
 	public static final int NO_PREV_THROW = -1;
 	
 	public int throwToFormat;
@@ -28,6 +29,9 @@ public class ThrowFormatter {
 		}
 		else if(throwToFormat == 0){
 			return OPEN;
+		}
+		else if(throwToFormat == Frame.NO_SCORE){
+			return NONE;
 		}
 		else{
 			return throwToFormat + "";
