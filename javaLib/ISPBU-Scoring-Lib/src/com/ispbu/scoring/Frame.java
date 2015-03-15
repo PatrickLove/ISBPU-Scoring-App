@@ -10,10 +10,10 @@ public class Frame {
 	
 	public Score score(){
 		if(isStrike()){
-			return Score.STRIKE;
+			return Score.getStrike();
 		}
 		else if(isSpare()){
-			return Score.SPARE;
+			return Score.getSpare();
 		}
 		else{
 			return new Score(throw1+throw2);
@@ -55,4 +55,29 @@ public class Frame {
 		}
 	}
 
+	@Override
+	public String toString() {
+		if(isStrike()){
+			return " X"; //Does not use ThrowFormatter due to extra space
+		}
+		if(throw1 != NO_SCORE){
+			String ret = "";
+			ret += new ThrowFormatter(throw1).format();
+			if(throw2 != NO_SCORE){
+				ret += new ThrowFormatter(	throw1==10 ? ThrowFormatter.NO_PREV_THROW : throw1,
+											throw2).format();
+			}
+			else{
+				ret += " ";
+			}
+			return ret;
+		}
+		else{
+			return "  ";
+		}
+	}
+
+	public boolean isTenth(){
+		return false;
+	}
 }

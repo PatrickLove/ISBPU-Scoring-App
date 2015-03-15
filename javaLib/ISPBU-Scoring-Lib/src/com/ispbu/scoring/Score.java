@@ -2,11 +2,12 @@ package com.ispbu.scoring;
 
 public class Score {
 	
-	public static Score SPARE = new Score(10, 1);
-	public static Score STRIKE = new Score(10, 2);
+	public static Score getSpare(){ return new Score(10, 1); }
+	public static Score getStrike(){ return new Score(10, 2); }
 	
 	private int value;
 	private int extraThrows;
+	private int frameNum = -1;
 	
 	public Score(int val, int eThrows){
 		this.value = val;
@@ -17,6 +18,14 @@ public class Score {
 		this(val, 0);
 	}
 	
+	public int getFrameNum() {
+		return frameNum;
+	}
+
+	public void setFrameNum(int frameNum) {
+		this.frameNum = frameNum;
+	}
+
 	public boolean isEvaluated(){
 		return extraThrows <= 0;
 	}
@@ -34,6 +43,10 @@ public class Score {
 
 	public int getRemainingThrows() {
 		return extraThrows;
+	}
+	
+	public String toString(){
+		return value + " with the next " + extraThrows + " throw(s)";
 	}
 
 }

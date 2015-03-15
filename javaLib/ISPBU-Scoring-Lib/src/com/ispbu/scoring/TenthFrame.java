@@ -42,4 +42,48 @@ public class TenthFrame extends Frame {
 		}
 		return false;
 	}
+	
+	@Override
+	public String toString() {
+		if(throw1 != NO_SCORE){
+			String ret = "";
+			ret += new ThrowFormatter(throw1).format();
+			if(throw2 != NO_SCORE){
+				ret += new ThrowFormatter(	throw1==10 ? ThrowFormatter.NO_PREV_THROW : throw1,
+											throw2).format();
+				if(throw3 != NO_SCORE){
+					ret += new ThrowFormatter(	(throw2 == 10 || throw1+throw2==10) ? 
+													ThrowFormatter.NO_PREV_THROW :
+													throw2,
+												throw3).format();
+				}
+				else{
+					ret += " ";
+				}
+			}
+			else{
+				ret += "  ";
+			}
+			return ret;
+		}
+		else{
+			return "  ";
+		}
+	}
+	
+	public void addExtraThrowsTo(Score toS) {
+		if(isFinished() && !toS.isEvaluated()){
+			toS.addExtraThrow(throw1);
+			if(!toS.isEvaluated()){
+				toS.addExtraThrow(throw2);
+				if(!toS.isEvaluated()){
+					toS.addExtraThrow(throw3);
+				}
+			}
+		}
+	}
+	
+	public boolean isTenth(){
+		return true;
+	}
 }
