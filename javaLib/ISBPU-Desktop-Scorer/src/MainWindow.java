@@ -1,10 +1,6 @@
 import java.awt.EventQueue;
 
-import javax.swing.AbstractAction;
-import javax.swing.InputMap;
 import javax.swing.JFrame;
-import javax.swing.KeyStroke;
-
 import com.ispbu.scoring.Frame;
 import com.ispbu.scoring.Game;
 
@@ -12,10 +8,7 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -312,7 +305,6 @@ public class MainWindow {
 			public boolean dispatchKeyEvent(KeyEvent e) {
 				if(e.getID() == KeyEvent.KEY_TYPED){
 					char c = Character.toLowerCase(e.getKeyChar());
-					System.out.println(c);
 					switch(c){
 					case '0':
 						button0.doClick();
