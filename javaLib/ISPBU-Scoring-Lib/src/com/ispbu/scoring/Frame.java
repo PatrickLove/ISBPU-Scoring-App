@@ -11,15 +11,19 @@ public class Frame {
 	
 	
 	public Score score(){
-		if(isStrike()){
+		if(hasStrike()){
 			return Score.getStrike();
 		}
-		else if(isSpare()){
+		else if(hasSpare()){
 			return Score.getSpare();
 		}
 		else{
 			return new Score(Math.max(throw1, 0)+Math.max(throw2, 0));
 		}
+	}
+	
+	public boolean hasNineOp(){
+		return throw1 == 9;
 	}
 	
 	public boolean canStrike(){
@@ -30,16 +34,24 @@ public class Frame {
 		return throw1 != 10 && throw1 != NO_SCORE && throw2 == NO_SCORE;
 	}
 	
-	public boolean isStrike(){
-		return throw1 == 10;
+	public int countStrike(){
+		return throw1 == 10 ? 1:0;
 	}
 	
-	public boolean isSpare(){
-		return !isStrike() && throw1+throw2 == 10;
+	public int countSpare(){
+		return (!hasStrike() && throw1+throw2 == 10) ? 1:0;
+	}
+	
+	public boolean hasStrike(){
+		return countStrike() > 0;
+	}
+	
+	public boolean hasSpare(){
+		return countSpare() > 0;
 	}
 	
 	public boolean isFinished(){
-		return throw1 != NO_SCORE && (isStrike() || throw2 != NO_SCORE);
+		return throw1 != NO_SCORE && (hasStrike() || throw2 != NO_SCORE);
 	}
 	
 	public boolean doThrow(int score){
@@ -63,7 +75,7 @@ public class Frame {
 	public void addExtraThrowsTo(Score toS) {
 		if(!toS.isEvaluated()){
 			toS.addExtraThrow(Math.max(throw1, 0));
-			if(!toS.isEvaluated() && !isStrike()){
+			if(!toS.isEvaluated() && !hasStrike()){
 				toS.addExtraThrow(Math.max(throw2, 0));
 			}
 		}
@@ -71,7 +83,7 @@ public class Frame {
 
 	@Override
 	public String toString() {
-		if(isStrike()){
+		if(hasStrike()){
 			return " X"; //Does not use ThrowFormatter due to extra space
 		}
 		String ret = "";

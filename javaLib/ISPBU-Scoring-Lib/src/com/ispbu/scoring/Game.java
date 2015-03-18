@@ -130,4 +130,50 @@ public class Game {
 		}
 		return ret;
 	}
+	
+	public GameStats getStats(){
+		if(isFinished()){
+			int score = this.score().getTotalValue();
+			int spares = 0;
+			int strikes = 0;
+			int bonus = 0;
+			int nineOps = 0;
+			int nineConvs = 0;
+			ArrayList<Score> toScore = new ArrayList<Score>();
+			for(Frame f : frames){
+				spares += f.countSpare();
+				strikes += f.countStrike();
+				
+				ArrayList<Score> toRemove = new ArrayList<Score>();
+				for(Score toS : toScore){
+					if(!toS.isEvaluated()){
+						f.addExtraThrowsTo(toS);
+					}
+					if(toS.isEvaluated()){
+						bonus += toS.getValue()-10;
+						toRemove.add(toS);
+					}
+				}
+				for(Score toR : toRemove){
+					toScore.remove(toR);
+				}
+				Score fScore = f.score();
+				if(fScore.getRemainingThrows() > 0){
+					toScore.add(fScore);
+				}
+				if(f.isTenth()){
+					bonus += ((TenthFrame) f).countBonus();
+				}
+				
+				if(f.hasNineOp()){
+					nineOps++;
+					if(f.hasSpare()){
+						nineConvs++;
+					}
+				}
+			}
+			return new GameStats(score, strikes, spares, bonus, nineOps, nineConvs);
+		}
+		return null;
+	}
 }

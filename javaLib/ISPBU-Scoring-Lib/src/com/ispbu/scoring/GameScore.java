@@ -24,5 +24,9 @@ public class GameScore {
 	public int getFramesScored(){
 		return frames;
 	}
+	
+	public String toString(){
+		return String.format("%d in %d complete frames", totalValue, frames);
+	}
 
 }

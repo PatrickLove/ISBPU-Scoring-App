@@ -8,6 +8,10 @@ public class TenthFrame extends Frame {
 		return new Score(Math.max(throw1, 0)+Math.max(throw2, 0)+Math.max(throw3, 0));
 	}
 	
+	public boolean hasNineOp(){
+		return throw1 == 9 || (throw2 == 9 && throw1 == 10);
+	}
+	
 	public boolean canStrike(){
 		if(throw1 == NO_SCORE) return true;
 		else if(throw2 == NO_SCORE) return throw1 == 10;
@@ -22,12 +26,22 @@ public class TenthFrame extends Frame {
 		return false;
 	}
 	
-	public boolean isStrike(){
-		return throw1 == 10 || throw2 == 10 || throw3 == 10;
+	public int countStrike(){
+		int strikes = 0;
+		if(throw1 == 10){
+			strikes++;
+		}
+		if(throw2 == 10){
+			strikes++;
+		}
+		if(throw3 == 10){
+			strikes++;
+		}
+		return strikes;
 	}
 	
-	public boolean isSpare(){
-		return throw1+throw2 == 10 || throw2+throw3 == 10;
+	public int countSpare(){
+		return (throw1+throw2 == 10 || throw2+throw3 == 10) ? 1:0;
 	}
 	
 	public boolean isFinished(){
@@ -90,5 +104,21 @@ public class TenthFrame extends Frame {
 	
 	public boolean isTenth(){
 		return true;
+	}
+
+	public int countBonus() {
+		int ret = 0;
+		if(isFinished() && (hasStrike() || hasSpare())){
+			if(throw1 == 10){
+				ret += throw2 + throw3;
+				if(throw2 == 10){
+					ret += throw3;
+				}
+			}
+			else if(throw1 + throw2 == 10){
+				ret += throw3;
+			}
+		}
+		return ret;
 	}
 }

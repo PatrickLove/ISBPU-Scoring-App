@@ -1,8 +1,10 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
 import com.ispbu.scoring.Frame;
 import com.ispbu.scoring.Game;
+import com.ispbu.scoring.GameStats;
 
 import javax.swing.JButton;
 
@@ -15,6 +17,15 @@ import java.awt.Insets;
 import java.awt.Font;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
+
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.JPanel;
+
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.factories.FormFactory;
 
 
 public class MainWindow {
@@ -35,6 +46,15 @@ public class MainWindow {
 	private JButton button0;
 	private JButton button5;
 	private JButton btnNewGame;
+	private JLabel labelStats;
+	private JPanel panel;
+	private JLabel lblScoreVal;
+	private JLabel lblMarksVal;
+	private JLabel lblStrikesVal;
+	private JLabel lblSparesVal;
+	private JLabel lblBPPMVal;
+	private JLabel lblSPFVal;
+	private JLabel lblNineSpare;
 
 	/**
 	 * Launch the application.
@@ -66,13 +86,13 @@ public class MainWindow {
 		frmIsbpuOfficialDesktop = new JFrame();
 		frmIsbpuOfficialDesktop.setResizable(false);
 		frmIsbpuOfficialDesktop.setTitle("ISBPU Official Desktop Scorer");
-		frmIsbpuOfficialDesktop.setBounds(100, 100, 850, 694);
+		frmIsbpuOfficialDesktop.setBounds(100, 100, 845, 795);
 		frmIsbpuOfficialDesktop.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{10, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{10, 75, 0, 0, 0, 0, 0, 0, 10, 0};
+		gridBagLayout.rowHeights = new int[]{10, 75, 0, 0, 0, 0, 0, 0, 0, 105, 10, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		frmIsbpuOfficialDesktop.getContentPane().setLayout(gridBagLayout);
 		
 		gameView = new GameView();
@@ -282,6 +302,23 @@ public class MainWindow {
 			public void actionPerformed(ActionEvent e) {
 				g = new Game();
 				gameView.setGame(g);
+				button0.setEnabled(true);
+				button1.setEnabled(true);
+				button2.setEnabled(true);
+				button3.setEnabled(true);
+				button4.setEnabled(true);
+				button5.setEnabled(true);
+				button6.setEnabled(true);
+				button7.setEnabled(true);
+				button8.setEnabled(true);
+				button9.setEnabled(true);
+				lblScoreVal.setText("");
+				lblMarksVal.setText("");
+				lblStrikesVal.setText("");
+				lblSparesVal.setText("");
+				lblBPPMVal.setText("");
+				lblSPFVal.setText("");
+				lblNineSpare.setText("");
 				updateButtons();
 			}
 		});
@@ -293,6 +330,94 @@ public class MainWindow {
 		gbc_btnNewGame.gridx = 1;
 		gbc_btnNewGame.gridy = 7;
 		frmIsbpuOfficialDesktop.getContentPane().add(btnNewGame, gbc_btnNewGame);
+		
+		labelStats = new JLabel("Game Stats:");
+		labelStats.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		labelStats.setVerticalAlignment(SwingConstants.TOP);
+		GridBagConstraints gbc_labelStats = new GridBagConstraints();
+		gbc_labelStats.fill = GridBagConstraints.BOTH;
+		gbc_labelStats.insets = new Insets(0, 0, 5, 5);
+		gbc_labelStats.gridx = 1;
+		gbc_labelStats.gridy = 8;
+		frmIsbpuOfficialDesktop.getContentPane().add(labelStats, gbc_labelStats);
+		
+		panel = new JPanel();
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.gridwidth = 3;
+		gbc_panel.insets = new Insets(0, 0, 5, 5);
+		gbc_panel.fill = GridBagConstraints.BOTH;
+		gbc_panel.gridx = 1;
+		gbc_panel.gridy = 9;
+		frmIsbpuOfficialDesktop.getContentPane().add(panel, gbc_panel);
+		panel.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("max(50dlu;min)"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
+		
+		JLabel lblScore = new JLabel("Score:");
+		lblScore.setHorizontalAlignment(SwingConstants.TRAILING);
+		panel.add(lblScore, "2, 2");
+		
+		lblScoreVal = new JLabel();
+		panel.add(lblScoreVal, "4, 2, fill, fill");
+		
+		JLabel lblAverageMarkBonus = new JLabel("Average Mark Bonus:");
+		lblAverageMarkBonus.setHorizontalAlignment(SwingConstants.TRAILING);
+		panel.add(lblAverageMarkBonus, "8, 2");
+		
+		lblBPPMVal = new JLabel();
+		panel.add(lblBPPMVal, "10, 2, fill, fill");
+		
+		JLabel lblMarks = new JLabel("Marks:");
+		lblMarks.setHorizontalAlignment(SwingConstants.TRAILING);
+		panel.add(lblMarks, "2, 4");
+		
+		lblMarksVal = new JLabel();
+		panel.add(lblMarksVal, "4, 4, fill, fill");
+		
+		JLabel lblAvaerageScorePer = new JLabel("Average Score per Frame:");
+		lblAvaerageScorePer.setHorizontalAlignment(SwingConstants.TRAILING);
+		panel.add(lblAvaerageScorePer, "8, 4");
+		
+		lblSPFVal = new JLabel();
+		panel.add(lblSPFVal, "10, 4, fill, fill");
+		
+		JLabel lblStrikes = new JLabel("Strikes:");
+		lblStrikes.setHorizontalAlignment(SwingConstants.TRAILING);
+		panel.add(lblStrikes, "2, 6");
+		
+		lblStrikesVal = new JLabel();
+		panel.add(lblStrikesVal, "4, 6, fill, fill");
+		
+		JLabel lblspareConversion = new JLabel("9-Spare Conversion %:");
+		lblspareConversion.setHorizontalAlignment(SwingConstants.TRAILING);
+		panel.add(lblspareConversion, "8, 6");
+		
+		lblNineSpare = new JLabel();
+		panel.add(lblNineSpare, "10, 6, fill, fill");
+		
+		JLabel lblSpares = new JLabel("Spares:");
+		lblSpares.setHorizontalAlignment(SwingConstants.TRAILING);
+		panel.add(lblSpares, "2, 8");
+		
+		lblSparesVal = new JLabel();
+		panel.add(lblSparesVal, "4, 8, fill, fill");
 		
 		registerBindings();
 		updateButtons();
@@ -307,6 +432,7 @@ public class MainWindow {
 					char c = Character.toLowerCase(e.getKeyChar());
 					switch(c){
 					case '0':
+					case '-':
 						button0.doClick();
 						break;
 					case '1':
@@ -357,5 +483,25 @@ public class MainWindow {
 	private void updateButtons() {
 		btnSpare.setEnabled(g.canSpare());
 		btnStrike.setEnabled(g.canStrike());
+		if(g.isFinished()){
+			button0.setEnabled(false);
+			button1.setEnabled(false);
+			button2.setEnabled(false);
+			button3.setEnabled(false);
+			button4.setEnabled(false);
+			button5.setEnabled(false);
+			button6.setEnabled(false);
+			button7.setEnabled(false);
+			button8.setEnabled(false);
+			button9.setEnabled(false);
+			GameStats stats = g.getStats();
+			lblScoreVal.setText(stats.getScore() + "");
+			lblMarksVal.setText(stats.getMarks() + "");
+			lblStrikesVal.setText(stats.getStrikes() + "");
+			lblSparesVal.setText(stats.getSpares()+"");
+			lblBPPMVal.setText(String.format("%.3f", stats.getAvgBonus()));
+			lblSPFVal.setText(String.format("%.3f", stats.getAvgFrameScore()));
+			lblNineSpare.setText(String.format("%.2f%%", stats.getNineConvert()*100));
+		}
 	}
 }
