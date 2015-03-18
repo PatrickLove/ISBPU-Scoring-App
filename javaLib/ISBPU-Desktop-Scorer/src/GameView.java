@@ -9,7 +9,6 @@ import javax.swing.SwingConstants;
 import com.ispbu.scoring.Frame;
 import com.ispbu.scoring.Game;
 import com.ispbu.scoring.GameScore;
-import com.ispbu.scoring.Score;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
