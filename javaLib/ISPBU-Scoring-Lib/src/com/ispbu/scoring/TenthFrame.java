@@ -49,6 +49,7 @@ public class TenthFrame extends Frame {
 			if(throw1 == 10 || throw1+throw2 == 10){
 				return throw3 != NO_SCORE;
 			}
+			return true;
 		}
 		return false;
 	}
