@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="50dp">
+
+    <view
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        class="com.isbpu.ispbuscoringapp.views.FrameView"
+        android:id="@+id/frame1"
+        android:layout_weight="1" />
+
+    <view
+        class="com.isbpu.ispbuscoringapp.views.FrameView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/frame2"
+        android:layout_weight="1" >
+
+    </view>
+
+    <view
+        class="com.isbpu.ispbuscoringapp.views.FrameView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/frame3"
+        android:layout_weight="1" />
+
+    <view
+        class="com.isbpu.ispbuscoringapp.views.FrameView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/frame4"
+        android:layout_weight="1" />
+
+    <view
+        class="com.isbpu.ispbuscoringapp.views.FrameView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/frame5"
+        android:layout_weight="1" />
+
+    <view
+        class="com.isbpu.ispbuscoringapp.views.FrameView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/frame6"
+        android:layout_weight="1" />
+
+    <view
+        class="com.isbpu.ispbuscoringapp.views.FrameView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/frame7"
+        android:layout_weight="1" />
+
+    <view
+        class="com.isbpu.ispbuscoringapp.views.FrameView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/frame8"
+        android:layout_weight="1" />
+
+    <view
+        class="com.isbpu.ispbuscoringapp.views.FrameView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/frame9"
+        android:layout_weight="1" />
+
+    <view
+        class="com.isbpu.ispbuscoringapp.views.FrameView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/frame10"
+        app:isTenth="true"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/textScore"
+        android:minWidth="@dimen/score_view_width"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/border_rect"
+        android:layout_weight="1"
+        android:theme="@style/Base.TextAppearance.AppCompat.Large" />
+
+</LinearLayout>
