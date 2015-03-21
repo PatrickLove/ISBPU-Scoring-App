@@ -2,6 +2,6 @@
 <resources>
     <dimen name="frame_padding">4dp</dimen>
     <dimen name="frame_text_size">14sp</dimen>
-    <dimen name="frame_box_min">20dp</dimen>
-    <dimen name="score_view_width">60dp</dimen>
+    <dimen name="frame_box_min">19dp</dimen>
+    <dimen name="score_view_width">57dp</dimen>
 </resources>

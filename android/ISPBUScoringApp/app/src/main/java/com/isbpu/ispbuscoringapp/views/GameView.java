@@ -12,7 +12,7 @@ import com.isbpu.ispbuscoringapp.R;
  */
 public class GameView extends LinearLayout {
 
-    private FrameView[] frameViews;
+    private FrameView[] frameViews = new FrameView[10];
     private TextView scoreText;
 
     public GameView(Context context){

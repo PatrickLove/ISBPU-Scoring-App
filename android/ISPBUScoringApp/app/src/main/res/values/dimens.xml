@@ -2,8 +2,11 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="frame_text_size">12sp</dimen>
-    <dimen name="frame_padding">4dp</dimen>
-    <dimen name="frame_box_min">14dp</dimen>
-    <dimen name="score_view_width">42dp</dimen>
+    <dimen name="frame_text_size">11sp</dimen>
+    <dimen name="frame_padding">3dp</dimen>
+    <dimen name="frame_box_min">13dp</dimen>
+    <dimen name="score_view_width">39dp</dimen>
+    <dimen name="bottom_game_padding">10dp</dimen>
+    <dimen name="min_numeric_col_width">50dp</dimen>
+    <dimen name="stat_margin">20dp</dimen>
 </resources>
