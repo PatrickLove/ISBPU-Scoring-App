@@ -303,24 +303,7 @@ public class MainWindow {
 			public void actionPerformed(ActionEvent e) {
 				g = new Game();
 				gameView.setGame(g);
-				button0.setEnabled(true);
-				button1.setEnabled(true);
-				button2.setEnabled(true);
-				button3.setEnabled(true);
-				button4.setEnabled(true);
-				button5.setEnabled(true);
-				button6.setEnabled(true);
-				button7.setEnabled(true);
-				button8.setEnabled(true);
-				button9.setEnabled(true);
-				lblScoreVal.setText("");
-				lblMarksVal.setText("");
-				lblStrikesVal.setText("");
-				lblSparesVal.setText("");
-				lblBPPMVal.setText("");
-				lblSPFVal.setText("");
-				lblNineSpare.setText("");
-				updateButtons();
+				resetButtons();
 			}
 		});
 		btnNewGame.setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -499,10 +482,13 @@ public class MainWindow {
 		});
 	}
 
+	private boolean wasFinished = false;
+	
 	private void updateButtons() {
 		btnSpare.setEnabled(g.canSpare());
 		btnStrike.setEnabled(g.canStrike());
 		if(g.isFinished()){
+			wasFinished = true;
 			button0.setEnabled(false);
 			button1.setEnabled(false);
 			button2.setEnabled(false);
@@ -522,5 +508,30 @@ public class MainWindow {
 			lblSPFVal.setText(String.format("%.3f", stats.getAvgFrameScore()));
 			lblNineSpare.setText(String.format("%.2f%%", stats.getNineConvert()*100));
 		}
+		else if(wasFinished){
+			wasFinished = false;
+			resetButtons();
+		}
+	}
+	
+	private void resetButtons(){
+		button0.setEnabled(true);
+		button1.setEnabled(true);
+		button2.setEnabled(true);
+		button3.setEnabled(true);
+		button4.setEnabled(true);
+		button5.setEnabled(true);
+		button6.setEnabled(true);
+		button7.setEnabled(true);
+		button8.setEnabled(true);
+		button9.setEnabled(true);
+		lblScoreVal.setText("");
+		lblMarksVal.setText("");
+		lblStrikesVal.setText("");
+		lblSparesVal.setText("");
+		lblBPPMVal.setText("");
+		lblSPFVal.setText("");
+		lblNineSpare.setText("");
+		updateButtons();
 	}
 }
