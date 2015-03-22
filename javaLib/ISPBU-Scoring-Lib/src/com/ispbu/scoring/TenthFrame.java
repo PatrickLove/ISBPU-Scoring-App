@@ -54,6 +54,22 @@ public class TenthFrame extends Frame {
 		return false;
 	}
 	
+	public boolean undoThrow(){
+		if(throw3 != NO_SCORE){
+			throw3 = NO_SCORE;
+			return true;
+		}
+		else if(throw2 != NO_SCORE){
+			throw2 = NO_SCORE;
+			return true;
+		}
+		else if(throw1 != NO_SCORE){
+			throw1 = NO_SCORE;
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean doThrow(int score){
 		if(!isFinished() && score <= 10){
 			if(score == MAKE_SPARE){

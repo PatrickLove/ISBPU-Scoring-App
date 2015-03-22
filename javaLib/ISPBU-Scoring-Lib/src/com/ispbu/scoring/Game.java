@@ -70,6 +70,20 @@ public class Game {
 		return new GameScore(totalValue, currentFrame, frameScores);
 	}
 	
+	public boolean undoThrow(){
+		if(currentFrame == FRAME_DONE){
+			currentFrame--;
+		}
+		if(!frames[currentFrame].undoThrow()){
+			if(currentFrame == 0) return false;
+			currentFrame--;
+			return frames[currentFrame].undoThrow();
+		}
+		else{
+			return true;
+		}
+	}
+	
 	public boolean makeThrow(int pins){
 		boolean ret = false;
 		if(!isFinished()){

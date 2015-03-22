@@ -54,6 +54,18 @@ public class Frame {
 		return throw1 != NO_SCORE && (hasStrike() || throw2 != NO_SCORE);
 	}
 	
+	public boolean undoThrow(){
+		if(throw2 != NO_SCORE){
+			throw2 = NO_SCORE;
+			return true;
+		}
+		else if(throw1 != NO_SCORE){
+			throw1 = NO_SCORE;
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean doThrow(int score){
 		if(!isFinished() && score <= 10){
 			if(score == MAKE_SPARE){

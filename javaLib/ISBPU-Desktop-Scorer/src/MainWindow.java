@@ -55,6 +55,7 @@ public class MainWindow {
 	private JLabel lblBPPMVal;
 	private JLabel lblSPFVal;
 	private JLabel lblNineSpare;
+	private JButton btnBackspace;
 
 	/**
 	 * Launch the application.
@@ -324,12 +325,27 @@ public class MainWindow {
 		});
 		btnNewGame.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		GridBagConstraints gbc_btnNewGame = new GridBagConstraints();
-		gbc_btnNewGame.gridwidth = 3;
+		gbc_btnNewGame.gridwidth = 2;
 		gbc_btnNewGame.fill = GridBagConstraints.BOTH;
 		gbc_btnNewGame.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewGame.gridx = 1;
 		gbc_btnNewGame.gridy = 7;
 		frmIsbpuOfficialDesktop.getContentPane().add(btnNewGame, gbc_btnNewGame);
+		
+		btnBackspace = new JButton("\u2190");
+		btnBackspace.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				g.undoThrow();
+				gameView.updateGame();
+				updateButtons();
+			}
+		});
+		GridBagConstraints gbc_btnBackspace = new GridBagConstraints();
+		gbc_btnBackspace.fill = GridBagConstraints.BOTH;
+		gbc_btnBackspace.insets = new Insets(0, 0, 5, 5);
+		gbc_btnBackspace.gridx = 3;
+		gbc_btnBackspace.gridy = 7;
+		frmIsbpuOfficialDesktop.getContentPane().add(btnBackspace, gbc_btnBackspace);
 		
 		labelStats = new JLabel("Game Stats:");
 		labelStats.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -473,6 +489,9 @@ public class MainWindow {
 				else if(e.getID() == KeyEvent.KEY_PRESSED){
 					if(	e.getKeyCode() == KeyEvent.VK_N && e.isControlDown()){
 						btnNewGame.doClick();
+					}
+					if(e.getKeyCode() == KeyEvent.VK_BACK_SPACE || e.getKeyCode() == KeyEvent.VK_DELETE){
+						btnBackspace.doClick();
 					}
 				}
 				return false;
