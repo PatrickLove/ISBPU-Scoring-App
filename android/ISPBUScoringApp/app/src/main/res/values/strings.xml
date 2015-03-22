@@ -10,4 +10,20 @@
     <string name="score">Score:</string>
     <string name="spf_label">Average Score per Frame:</string>
     <string name="nine_spare_label">9 Spare Conversion %:</string>
+    <string name="title_activity_game_entry">Play Game</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="undo_btn">Undo Last Throw</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="spare_symbol">/</string>
+    <string name="zero">0</string>
+    <string name="strike_symbol">X</string>
 </resources>

@@ -20,6 +20,10 @@
             android:name=".activities.GameViewActivity"
             android:label="@string/title_activity_game_view" >
         </activity>
+        <activity
+            android:name=".activities.GameEntryActivity"
+            android:label="@string/title_activity_game_entry" >
+        </activity>
     </application>
 
 </manifest>
