@@ -107,7 +107,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="@dimen/stat_margin"
-        android:id="@+id/">
+        android:id="@+id/gridLayout">
 
         <TextView
             android:layout_width="wrap_content"
