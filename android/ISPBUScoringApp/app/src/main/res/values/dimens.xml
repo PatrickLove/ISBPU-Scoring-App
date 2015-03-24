@@ -12,4 +12,5 @@
     <dimen name="min_numeric_col_width">50dp</dimen>
     <dimen name="stat_margin">20dp</dimen>
     <dimen name="numpad_text_size">20sp</dimen>
+    <dimen name="game_height">50dp</dimen>
 </resources>
