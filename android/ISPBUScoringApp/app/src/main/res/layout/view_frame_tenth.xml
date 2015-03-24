@@ -47,12 +47,13 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textScore"
+        android:id="@+id/frameTextScore"
         android:gravity="center_vertical|center_horizontal"
         android:background="@drawable/border_rect"
         android:layout_weight="5"
         android:padding="@dimen/frame_padding"
         android:maxLines="1"
         android:singleLine="true"
-        android:textSize="@dimen/frame_text_size" />
+        android:textSize="@dimen/frame_score_size"
+        android:textIsSelectable="false" />
 </LinearLayout>

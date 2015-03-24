@@ -3,4 +3,11 @@
          (such as screen margins) for screens with more than 820dp of available width. This
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
+
+    <dimen name="frame_padding">4dp</dimen>
+    <dimen name="frame_text_size">14sp</dimen>
+    <dimen name="frame_box_min">19dp</dimen>
+    <dimen name="score_view_width">66dp</dimen>
+    <dimen name="game_total_size">24sp</dimen>
+    <dimen name="frame_score_size">18sp</dimen>
 </resources>

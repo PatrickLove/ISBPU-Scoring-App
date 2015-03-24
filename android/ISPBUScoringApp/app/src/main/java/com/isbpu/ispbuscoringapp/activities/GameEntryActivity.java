@@ -9,12 +9,18 @@ import android.view.View;
 import android.widget.Button;
 
 import com.isbpu.ispbuscoringapp.R;
+import com.isbpu.ispbuscoringapp.views.GameView;
+import com.ispbu.scoring.Frame;
+import com.ispbu.scoring.Game;
 
 public class GameEntryActivity extends ActionBarActivity {
 
     private static final String LOG_TAG ="GameEntryActivity";
     private View spareButton;
     private View strikeButton;
+    private GameView gameView;
+
+    private Game g = new Game();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,34 +28,13 @@ public class GameEntryActivity extends ActionBarActivity {
         setContentView(R.layout.activity_game_entry);
         spareButton = findViewById(R.id.buttonSpare);
         strikeButton = findViewById(R.id.buttonStrike);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_game_entry, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        gameView = (GameView) findViewById(R.id.gameView);
+        gameView.setGame(g);
     }
 
     private void updateButtons(){
-        spareButton.setEnabled(true);
-        strikeButton.setEnabled(true);
+        spareButton.setEnabled(g.canSpare());
+        strikeButton.setEnabled(g.canStrike());
     }
 
     public void onNumericButtonPress(View v){
@@ -59,7 +44,7 @@ public class GameEntryActivity extends ActionBarActivity {
             pins = 0;
         }
         else if(numStr.equals(getString(R.string.spare_symbol))){
-            //TODO game + /
+            pins = Frame.MAKE_SPARE;
         }
         else if(numStr.equals(getString(R.string.strike_symbol))){
             pins = 10;
@@ -73,11 +58,14 @@ public class GameEntryActivity extends ActionBarActivity {
                 return;
             }
         }
-        //TODO game + pins and refreshGame
+        g.makeThrow(pins);
+        gameView.notifyGameChanged();
         updateButtons();
     }
 
     public void onUndoPress(View v){
-        //TODO Undo and refresh game
+        g.undoThrow();
+        gameView.notifyGameChanged();
+        updateButtons();
     }
 }

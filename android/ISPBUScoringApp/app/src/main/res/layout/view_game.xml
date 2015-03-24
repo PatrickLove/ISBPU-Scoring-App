@@ -5,73 +5,61 @@
     android:layout_height="fill_parent"
     android:minHeight="50dp">
 
-    <view
+    <com.isbpu.ispbuscoringapp.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        class="com.isbpu.ispbuscoringapp.views.FrameView"
         android:id="@+id/frame1"
         android:layout_weight="1" />
 
-    <view
-        class="com.isbpu.ispbuscoringapp.views.FrameView"
+    <com.isbpu.ispbuscoringapp.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame2"
-        android:layout_weight="1" >
+        android:layout_weight="1" />
 
-    </view>
-
-    <view
-        class="com.isbpu.ispbuscoringapp.views.FrameView"
+    <com.isbpu.ispbuscoringapp.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame3"
         android:layout_weight="1" />
 
-    <view
-        class="com.isbpu.ispbuscoringapp.views.FrameView"
+    <com.isbpu.ispbuscoringapp.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame4"
         android:layout_weight="1" />
 
-    <view
-        class="com.isbpu.ispbuscoringapp.views.FrameView"
+    <com.isbpu.ispbuscoringapp.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame5"
         android:layout_weight="1" />
 
-    <view
-        class="com.isbpu.ispbuscoringapp.views.FrameView"
+    <com.isbpu.ispbuscoringapp.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame6"
         android:layout_weight="1" />
 
-    <view
-        class="com.isbpu.ispbuscoringapp.views.FrameView"
+    <com.isbpu.ispbuscoringapp.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame7"
         android:layout_weight="1" />
 
-    <view
-        class="com.isbpu.ispbuscoringapp.views.FrameView"
+    <com.isbpu.ispbuscoringapp.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame8"
         android:layout_weight="1" />
 
-    <view
-        class="com.isbpu.ispbuscoringapp.views.FrameView"
+    <com.isbpu.ispbuscoringapp.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame9"
         android:layout_weight="1" />
 
-    <view
-        class="com.isbpu.ispbuscoringapp.views.FrameView"
+    <com.isbpu.ispbuscoringapp.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame10"
@@ -86,6 +74,9 @@
         android:gravity="center_vertical|center_horizontal"
         android:background="@drawable/border_rect"
         android:layout_weight="3"
-        android:theme="@style/Base.TextAppearance.AppCompat.Large" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:singleLine="true"
+        android:textSize="@dimen/game_total_size"
+        android:padding="@dimen/frame_padding" />
 
 </LinearLayout>

@@ -2,10 +2,13 @@ package com.isbpu.ispbuscoringapp.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.isbpu.ispbuscoringapp.R;
+import com.ispbu.scoring.Game;
+import com.ispbu.scoring.GameScore;
 
 /**
  * Created by Patrick Love on 3/19/2015.
@@ -15,6 +18,25 @@ public class GameView extends LinearLayout {
     private FrameView[] frameViews = new FrameView[10];
     private TextView scoreText;
 
+    private Game game;
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public void notifyGameChanged(){
+        GameScore score = game.score();
+        int[] frameScores = score.getFrameScores();
+        for(int i = 0; i < 10; i++){
+            frameViews[i].setFrame(game.getFrame(i));
+            frameViews[i].setScore(frameScores[i]);
+            if(i==0){
+                Log.v("HELLO", ""+frameViews[i].getScore());
+            }
+        }
+        this.scoreText.setText(""+score.getTotalValue());
+    }
+
+
     public GameView(Context context){
         super(context);
         init();
@@ -22,28 +44,13 @@ public class GameView extends LinearLayout {
 
     public GameView(Context context, AttributeSet attrs) {
         super(context, attrs);
-//        retrieveAttrs(attrs);
         init();
     }
 
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-//        retrieveAttrs(attrs);
         init();
     }
-
-//    private void retrieveAttrs(AttributeSet attrs){
-//        TypedArray a = getContext().getTheme().obtainStyledAttributes(
-//                attrs,
-//                R.styleable.FrameView,
-//                0, 0);
-//
-//        try {
-//            isTenth = a.getBoolean(R.styleable.FrameView_isTenth, false);
-//        } finally {
-//            a.recycle();
-//        }
-//    }
 
     private void init(){
         inflate(getContext(), R.layout.view_game, this);
@@ -58,7 +65,7 @@ public class GameView extends LinearLayout {
         frameViews[8] = (FrameView) findViewById(R.id.frame9);
 
         frameViews[9] = (FrameView) findViewById(R.id.frame10);
-        scoreText = (TextView) findViewById(R.id.textScore);
+        scoreText = (TextView) findViewById(R.id.scoreView);
 
         if(isInEditMode()){
             scoreText.setText("300");

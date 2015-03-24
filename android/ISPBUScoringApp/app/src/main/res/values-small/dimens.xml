@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="frame_text_size">8sp</dimen>
-    <dimen name="frame_padding">2dp</dimen>
-    <dimen name="frame_box_min">10dp</dimen>
-    <dimen name="score_view_width">60dp</dimen>
-</resources>

@@ -3,10 +3,12 @@ package com.isbpu.ispbuscoringapp.views;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.isbpu.ispbuscoringapp.R;
+import com.ispbu.scoring.Frame;
 
 /**
  * Created by Patrick Love on 3/19/2015.
@@ -19,6 +21,7 @@ public class FrameView extends LinearLayout {
     private TextView throw3Text;
     private TextView scoreText;
 
+    private int score;
     public int getScore() {
         return score;
     }
@@ -26,7 +29,21 @@ public class FrameView extends LinearLayout {
         this.score = score;
         scoreText.setText(score+"");
     }
-    private int score;
+
+    private Frame frame;
+    public void setFrame(Frame frame) {
+        this.frame = frame;
+        notifyFrameChange();
+    }
+
+    public void notifyFrameChange(){
+        String frameText = frame.toString();
+        throw1Text.setText(""+frameText.charAt(0));
+        throw2Text.setText(""+frameText.charAt(1));
+        if(isTenth && frame.isTenth()){
+            throw3Text.setText(""+frameText.charAt(2));
+        }
+    }
 
     public FrameView(Context context){
         super(context);
@@ -70,7 +87,7 @@ public class FrameView extends LinearLayout {
         if(isTenth){
             throw3Text = (TextView) findViewById(R.id.textThrow3);
         }
-        scoreText = (TextView) findViewById(R.id.textScore);
+        scoreText = (TextView) findViewById(R.id.frameTextScore);
 
         if(isInEditMode()){
             throw1Text.setText("9");
