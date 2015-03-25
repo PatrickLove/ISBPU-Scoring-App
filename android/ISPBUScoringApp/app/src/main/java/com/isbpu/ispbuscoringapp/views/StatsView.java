@@ -24,7 +24,7 @@ public class StatsView extends LinearLayout {
         markView.setText(""+stats.getMarks());
         strikeView.setText(""+stats.getStrikes());
         spareView.setText(""+stats.getSpares());
-        AMBView.setText(DOUBLE_FORMAT.format(stats.getMarkBonuses()));
+        AMBView.setText(DOUBLE_FORMAT.format(stats.getAvgBonus()));
         SPFView.setText(DOUBLE_FORMAT.format(stats.getAvgFrameScore()));
         nineSpareView.setText(PERCENT_FORMAT.format(stats.getNineConvert()));
     }
