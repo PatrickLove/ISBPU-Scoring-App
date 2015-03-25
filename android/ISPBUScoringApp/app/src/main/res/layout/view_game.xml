@@ -5,61 +5,61 @@
     android:layout_height="fill_parent"
     android:minHeight="50dp">
 
-    <com.isbpu.ispbuscoringapp.views.FrameView
+    <com.isbpu.ispbuscoringapp.ui.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame1"
         android:layout_weight="1" />
 
-    <com.isbpu.ispbuscoringapp.views.FrameView
+    <com.isbpu.ispbuscoringapp.ui.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame2"
         android:layout_weight="1" />
 
-    <com.isbpu.ispbuscoringapp.views.FrameView
+    <com.isbpu.ispbuscoringapp.ui.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame3"
         android:layout_weight="1" />
 
-    <com.isbpu.ispbuscoringapp.views.FrameView
+    <com.isbpu.ispbuscoringapp.ui.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame4"
         android:layout_weight="1" />
 
-    <com.isbpu.ispbuscoringapp.views.FrameView
+    <com.isbpu.ispbuscoringapp.ui.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame5"
         android:layout_weight="1" />
 
-    <com.isbpu.ispbuscoringapp.views.FrameView
+    <com.isbpu.ispbuscoringapp.ui.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame6"
         android:layout_weight="1" />
 
-    <com.isbpu.ispbuscoringapp.views.FrameView
+    <com.isbpu.ispbuscoringapp.ui.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame7"
         android:layout_weight="1" />
 
-    <com.isbpu.ispbuscoringapp.views.FrameView
+    <com.isbpu.ispbuscoringapp.ui.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame8"
         android:layout_weight="1" />
 
-    <com.isbpu.ispbuscoringapp.views.FrameView
+    <com.isbpu.ispbuscoringapp.ui.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame9"
         android:layout_weight="1" />
 
-    <com.isbpu.ispbuscoringapp.views.FrameView
+    <com.isbpu.ispbuscoringapp.ui.views.FrameView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:id="@+id/frame10"

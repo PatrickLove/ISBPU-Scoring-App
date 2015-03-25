@@ -1,9 +1,8 @@
-package com.isbpu.ispbuscoringapp.views;
+package com.isbpu.ispbuscoringapp.ui.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 

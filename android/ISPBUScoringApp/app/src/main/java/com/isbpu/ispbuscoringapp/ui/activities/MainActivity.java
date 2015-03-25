@@ -1,4 +1,4 @@
-package com.isbpu.ispbuscoringapp.activities;
+package com.isbpu.ispbuscoringapp.ui.activities;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;

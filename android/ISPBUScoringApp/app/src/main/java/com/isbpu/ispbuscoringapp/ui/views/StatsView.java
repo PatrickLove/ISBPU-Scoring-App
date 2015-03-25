@@ -1,4 +1,4 @@
-package com.isbpu.ispbuscoringapp.views;
+package com.isbpu.ispbuscoringapp.ui.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,7 +9,6 @@ import com.isbpu.ispbuscoringapp.R;
 import com.ispbu.scoring.GameStats;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 
 /**
  * Created by Patrick Love on 3/25/2015.
