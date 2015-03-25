@@ -50,25 +50,7 @@ public class GameEntryActivity extends ActionBarActivity {
 
     public void onNumericButtonPress(View v){
         String numStr = (String) ((Button) v).getText();
-        int pins;
-        if(numStr.equals(getString(R.string.zero))){
-            pins = 0;
-        }
-        else if(numStr.equals(getString(R.string.spare_symbol))){
-            pins = Frame.MAKE_SPARE;
-        }
-        else if(numStr.equals(getString(R.string.strike_symbol))){
-            pins = 10;
-        }
-        else{
-            try{
-                pins = Integer.parseInt(numStr);
-            }
-            catch (NumberFormatException e){
-                Log.w(LOG_TAG, "Number could not be read from button");
-                return;
-            }
-        }
+        int pins = readNumFromButton(numStr);
         g.makeThrow(pins);
         gameView.notifyGameChanged();
         updateButtons();
@@ -78,5 +60,46 @@ public class GameEntryActivity extends ActionBarActivity {
         g.undoThrow();
         gameView.notifyGameChanged();
         updateButtons();
+    }
+
+    private int readNumFromButton(String s){
+        int num = Frame.NO_SCORE;
+        if(s.equals(getString(R.string.zero))){
+            num = 0;
+        }
+        else if(s.equals(getString(R.string.spare_symbol))){
+            num = Frame.MAKE_SPARE;
+        }
+        else if(s.equals(getString(R.string.strike_symbol))){
+            num = 10;
+        }
+        else if(s.equals(getString(R.string.one))){
+            num = 1;
+        }
+        else if(s.equals(getString(R.string.two))){
+            num = 2;
+        }
+        else if(s.equals(getString(R.string.three))){
+            num = 3;
+        }
+        else if(s.equals(getString(R.string.four))){
+            num = 4;
+        }
+        else if(s.equals(getString(R.string.five))){
+            num = 5;
+        }
+        else if(s.equals(getString(R.string.six))){
+            num = 6;
+        }
+        else if(s.equals(getString(R.string.seven))){
+            num = 7;
+        }
+        else if(s.equals(getString(R.string.eight))){
+            num = 8;
+        }
+        else if(s.equals(getString(R.string.nine))){
+            num = 9;
+        }
+        return num;
     }
 }
