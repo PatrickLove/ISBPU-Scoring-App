@@ -71,7 +71,7 @@ public class TenthFrame extends Frame {
 	}
 	
 	public boolean doThrow(int score){
-		if(!isFinished() && score <= 10){
+		if(!isFinished() && score <= 10 && score != NO_SCORE){
 			if(score == MAKE_SPARE){
 				if(!canSpare()) return false;
 				if(throw2 == NO_SCORE) throw2 = 10-throw1;
@@ -137,5 +137,9 @@ public class TenthFrame extends Frame {
 			}
 		}
 		return ret;
+	}
+	
+	public int[] getThrows(){
+		return new int[]{throw1, throw2, throw3};
 	}
 }

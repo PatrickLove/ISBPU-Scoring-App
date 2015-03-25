@@ -16,6 +16,7 @@ import com.ispbu.scoring.Game;
 public class GameEntryActivity extends ActionBarActivity {
 
     private static final String LOG_TAG ="GameEntryActivity";
+    private static final String SAVED_GAME_STATE = "game_data";
     private View spareButton;
     private View strikeButton;
     private GameView gameView;
@@ -29,7 +30,17 @@ public class GameEntryActivity extends ActionBarActivity {
         spareButton = findViewById(R.id.buttonSpare);
         strikeButton = findViewById(R.id.buttonStrike);
         gameView = (GameView) findViewById(R.id.gameView);
+        if(savedInstanceState != null && savedInstanceState.containsKey(SAVED_GAME_STATE)){
+            g.makeThrows(savedInstanceState.getIntArray(SAVED_GAME_STATE));
+        }
         gameView.setGame(g);
+        gameView.notifyGameChanged();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putIntArray(SAVED_GAME_STATE, g.getThrowArray());
     }
 
     private void updateButtons(){

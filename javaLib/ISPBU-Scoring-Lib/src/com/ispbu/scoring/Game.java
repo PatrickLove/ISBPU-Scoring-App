@@ -190,4 +190,16 @@ public class Game {
 		}
 		return null;
 	}
+	
+	public int[] getThrowArray(){
+		int[] throwArray = new int[21];
+		int idCount = 0;
+		for(Frame f : frames){
+			for(int i : f.getThrows()){
+				throwArray[idCount] = i;
+				idCount++;
+			}
+		}
+		return throwArray;
+	}
 }

@@ -2,7 +2,7 @@ package com.ispbu.scoring;
 
 public class Frame {
 	
-	protected static final int NO_SCORE = -1;
+	public static final int NO_SCORE = -1;
 	
 	protected int throw1 = NO_SCORE;
 	protected int throw2 = NO_SCORE;
@@ -67,7 +67,7 @@ public class Frame {
 	}
 	
 	public boolean doThrow(int score){
-		if(!isFinished() && score <= 10){
+		if(!isFinished() && score <= 10 && score != NO_SCORE){
 			if(score == MAKE_SPARE){
 				if(!canSpare()) return false;
 				throw2 = 10-throw1;
@@ -107,5 +107,9 @@ public class Frame {
 
 	public boolean isTenth(){
 		return false;
+	}
+	
+	public int[] getThrows(){
+		return new int[]{throw1, throw2};
 	}
 }

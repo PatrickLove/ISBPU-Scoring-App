@@ -29,9 +29,6 @@ public class GameView extends LinearLayout {
         for(int i = 0; i < 10; i++){
             frameViews[i].setFrame(game.getFrame(i));
             frameViews[i].setScore(frameScores[i]);
-            if(i==0){
-                Log.v("HELLO", ""+frameViews[i].getScore());
-            }
         }
         this.scoreText.setText(""+score.getTotalValue());
     }
