@@ -13,4 +13,5 @@
     <dimen name="stat_margin">20dp</dimen>
     <dimen name="numpad_text_size">20sp</dimen>
     <dimen name="game_height">50dp</dimen>
+    <dimen name="num_col_indent">5dp</dimen>
 </resources>

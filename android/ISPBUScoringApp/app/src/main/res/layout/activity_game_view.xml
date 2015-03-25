@@ -9,157 +9,21 @@
     <com.isbpu.ispbuscoringapp.views.GameView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/view"
+        android:id="@+id/gameView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:paddingBottom="@dimen/bottom_game_padding" />
 
-    <GridLayout
-        android:layout_width="fill_parent"
+    <view
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/view"
+        class="com.isbpu.ispbuscoringapp.views.StatsView"
+        android:id="@+id/statsView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/gridLayout">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/gameView" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/statistics_heading"
-            android:id="@+id/textView"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_columnSpan="5"
-            android:textSize="25sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/score"
-            android:id="@+id/textView2"
-            android:layout_row="1"
-            android:layout_column="0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/scoreView"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:minWidth="@dimen/min_numeric_col_width" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/marks"
-            android:id="@+id/textView3"
-            android:layout_row="2"
-            android:layout_column="0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/marksView"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:minWidth="@dimen/min_numeric_col_width" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/strikes"
-            android:id="@+id/textView4"
-            android:layout_row="2"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/strikesView"
-            android:layout_row="2"
-            android:layout_column="3"
-            android:minWidth="@dimen/min_numeric_col_width" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/spares"
-            android:id="@+id/textView5"
-            android:layout_row="2"
-            android:layout_column="4" />
-
-    </GridLayout>
-
-    <GridLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gridLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/stat_margin"
-        android:id="@+id/gridLayout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/amb_label"
-            android:id="@+id/textView6"
-            android:layout_row="0"
-            android:layout_column="0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/spf_label"
-            android:id="@+id/textView7"
-            android:layout_row="1"
-            android:layout_column="0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/bonusView"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:minWidth="@dimen/min_numeric_col_width" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/nine_spare_label"
-            android:id="@+id/textView8"
-            android:layout_row="2"
-            android:layout_column="0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/spfView"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:minWidth="@dimen/min_numeric_col_width" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/nineSpareView"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:minWidth="@dimen/min_numeric_col_width" />
-    </GridLayout>
 </RelativeLayout>

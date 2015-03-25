@@ -21,6 +21,7 @@ public class GameView extends LinearLayout {
     private Game game;
     public void setGame(Game game) {
         this.game = game;
+        notifyGameChanged();
     }
 
     public void notifyGameChanged(){

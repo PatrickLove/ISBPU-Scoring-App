@@ -5,4 +5,9 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="num_col_style">
+        <item name="android:paddingLeft">@dimen/num_col_indent</item>
+        <item name="android:minWidth">@dimen/min_numeric_col_width</item>
+    </style>
+
 </resources>

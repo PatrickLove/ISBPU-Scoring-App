@@ -1,5 +1,6 @@
 package com.isbpu.ispbuscoringapp.activities;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ public class GameEntryActivity extends ActionBarActivity {
 
     private static final String LOG_TAG ="GameEntryActivity";
     private static final String SAVED_GAME_STATE = "game_data";
+    public static final String EXTRA_GAME = "extra_game_data";
     private View spareButton;
     private View strikeButton;
     private GameView gameView;
@@ -30,11 +32,15 @@ public class GameEntryActivity extends ActionBarActivity {
         spareButton = findViewById(R.id.buttonSpare);
         strikeButton = findViewById(R.id.buttonStrike);
         gameView = (GameView) findViewById(R.id.gameView);
+
+        Bundle extras = getIntent().getExtras();
         if(savedInstanceState != null && savedInstanceState.containsKey(SAVED_GAME_STATE)){
             g.makeThrows(savedInstanceState.getIntArray(SAVED_GAME_STATE));
         }
+        else if(extras != null && extras.containsKey(EXTRA_GAME)){
+            g.makeThrows(extras.getIntArray(EXTRA_GAME));
+        }
         gameView.setGame(g);
-        gameView.notifyGameChanged();
     }
 
     @Override
@@ -54,6 +60,11 @@ public class GameEntryActivity extends ActionBarActivity {
         g.makeThrow(pins);
         gameView.notifyGameChanged();
         updateButtons();
+        if(g.isFinished()){
+            Intent intent = new Intent(this, GameViewActivity.class);
+            intent.putExtra(GameViewActivity.EXTRA_GAME, g.getThrowArray());
+            startActivity(intent);
+        }
     }
 
     public void onUndoPress(View v){
