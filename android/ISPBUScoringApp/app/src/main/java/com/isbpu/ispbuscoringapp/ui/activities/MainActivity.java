@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.isbpu.ispbuscoringapp.R;
 import com.isbpu.ispbuscoringapp.database.GameDBEntry;
@@ -35,7 +36,6 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            startActivity(new Intent(this, GameEntryActivity.class));
             return true;
         }
         else if(id == R.id.action_read_db){
@@ -46,5 +46,13 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onPlayClick(View v){
+        loadNewGame();
+    }
+
+    private void loadNewGame() {
+        startActivity(new Intent(this, GameEntryActivity.class));
     }
 }
