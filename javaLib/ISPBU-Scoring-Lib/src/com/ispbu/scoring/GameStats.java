@@ -6,14 +6,28 @@ public class GameStats {
 	private int strikes;
 	private int spares;
 	private int markBonuses;
-	private double nineConvert;
+	private int nineOps;
+	
+	protected int getNineOps() {
+		return nineOps;
+	}
+	protected int getNineSpares() {
+		return nineSpares;
+	}
+	protected int getMarkBonuses() {
+		return markBonuses;
+	}
+
+
+	private int nineSpares;
 	
 	public GameStats(int score, int strikes, int spares, int markBonus, int nineOps, int nineSpares){
 		this.score = score;
 		this.strikes = strikes;
 		this.spares = spares;
 		this.markBonuses = markBonus;
-		this.nineConvert = (double)nineSpares/nineOps;
+		this.nineOps = nineOps;
+		this.nineSpares = nineSpares;
 	}
 	
 	public int getScore() {
@@ -25,9 +39,9 @@ public class GameStats {
 	public int getSpares() {
 		return spares;
 	}
-	public int getMarkBonuses() {
-		return markBonuses;
-	}
+	
+	
+	
 	public double getAvgFrameScore(){
 		return score/10.0;
 	}
@@ -38,7 +52,7 @@ public class GameStats {
 		return strikes + spares;
 	}
 	public double getNineConvert() {
-		return nineConvert;
+		return (double)nineSpares/nineOps;
 	}
 	
 	
