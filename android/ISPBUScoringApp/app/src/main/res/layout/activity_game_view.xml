@@ -26,4 +26,73 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/gameView" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/statsView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/saveCancelContainer">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:id="@+id/saveBtn"
+            android:layout_weight="1"
+            android:onClick="saveGame" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_game"
+            android:id="@+id/button11"
+            android:layout_weight="1"
+            android:onClick="backOut" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/cancelBtn"
+            android:layout_weight="1"
+            android:onClick="cancelGame" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:id="@+id/backBtn"
+        android:layout_below="@+id/saveCancelContainer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/saveCancelContainer"
+        android:onClick="backOut"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/game_played_on"
+        android:id="@+id/dateLabel"
+        android:layout_below="@+id/backBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/dateView"
+        android:layout_below="@+id/backBtn"
+        android:layout_toRightOf="@+id/dateLabel"
+        android:layout_toEndOf="@+id/dateLabel"
+        android:paddingLeft="@dimen/num_col_indent"
+        android:visibility="gone" />
+
 </RelativeLayout>

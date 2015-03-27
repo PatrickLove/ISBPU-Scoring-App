@@ -16,6 +16,8 @@ public class GameEntryActivity extends ActionBarActivity {
     private static final String LOG_TAG ="GameEntryActivity";
     private static final String SAVED_GAME_STATE = "game_data";
     public static final String EXTRA_GAME = "extra_game_data";
+    private static final int REQUEST_CODE = 999;
+
     private View spareButton;
     private View strikeButton;
     private GameView gameView;
@@ -60,10 +62,19 @@ public class GameEntryActivity extends ActionBarActivity {
         if(g.isFinished()){
             Intent intent = new Intent(this, GameViewActivity.class);
             intent.putExtra(GameViewActivity.EXTRA_GAME, g.getThrowArray());
-            startActivity(intent);
+            intent.putExtra(GameViewActivity.EXTRA_SHOW_SAVE_OPTIONS, true);
+            startActivityForResult(intent, REQUEST_CODE);
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                finish();
+            }
+        }
+    }
     public void onUndoPress(View v){
         g.undoThrow();
         gameView.notifyGameChanged();

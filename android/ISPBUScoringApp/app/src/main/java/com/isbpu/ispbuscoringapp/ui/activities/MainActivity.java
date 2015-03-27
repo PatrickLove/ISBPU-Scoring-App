@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.isbpu.ispbuscoringapp.R;
+import com.isbpu.ispbuscoringapp.database.GameDBEntry;
+import com.isbpu.ispbuscoringapp.database.GameDatabase;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -15,7 +17,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startActivity(new Intent(this, GameEntryActivity.class));
     }
 
 
@@ -33,9 +34,15 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, GameEntryActivity.class));
             return true;
+        }
+        else if(id == R.id.action_read_db){
+            GameDBEntry gameToShow = GameDatabase.getInstance(this).idQuery(1);
+            if(gameToShow != null){
+                startActivity(gameToShow.getViewIntent(this));
+            }
         }
 
         return super.onOptionsItemSelected(item);

@@ -26,4 +26,9 @@
     <string name="spare_symbol">/</string>
     <string name="zero">0</string>
     <string name="strike_symbol">X</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+    <string name="game_played_on">Game Played At:</string>
+    <string name="edit_game">Edit Game</string>
 </resources>
