@@ -11,4 +11,6 @@
     <dimen name="game_total_size">24sp</dimen>
     <dimen name="frame_score_size">18sp</dimen>
     <dimen name="game_height">100dp</dimen>
+    <dimen name="min_numeric_col_width">150dp</dimen>
+    <dimen name="min_numeric_col_width_small">100dp</dimen>
 </resources>

@@ -2,19 +2,12 @@ package com.isbpu.ispbuscoringapp.database;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
-import com.ispbu.scoring.Game;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Patrick Love on 3/25/2015.
- */
 public class GameDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "game_database";
@@ -75,7 +68,7 @@ public class GameDatabase extends SQLiteOpenHelper {
             @Override
             public List<GameDBEntry> run(SQLiteDatabase db) {
                 Cursor cursor = db.query(TABLE_GAMES, ALL_COLUMNS, where, null, null,null, null);
-                List<GameDBEntry> ret = new ArrayList<GameDBEntry>();
+                List<GameDBEntry> ret = new ArrayList<>();
                 for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
                     ret.add(GameDBEntry.readFromCursor(cursor));
                 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="amb_label">Average Mark Bonus:</string>
+
+    <string name="spf_label">Average Score per Frame:</string>
+    <string name="nine_spare_label">9 Spare Conversion %:</string>
+</resources>

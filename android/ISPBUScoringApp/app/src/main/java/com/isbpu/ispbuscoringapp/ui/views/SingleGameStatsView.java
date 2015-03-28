@@ -10,13 +10,10 @@ import com.ispbu.scoring.GameStats;
 
 import java.text.DecimalFormat;
 
-/**
- * Created by Patrick Love on 3/25/2015.
- */
-public class StatsView extends LinearLayout {
+public class SingleGameStatsView extends LinearLayout {
 
-    private final DecimalFormat PERCENT_FORMAT = new DecimalFormat("0.###%");
-    private final DecimalFormat DOUBLE_FORMAT = new DecimalFormat("0.###");
+    private final DecimalFormat PERCENT_FORMAT = new DecimalFormat("0.##%");
+    private final DecimalFormat DOUBLE_FORMAT = new DecimalFormat("0.##");
 
     public void updateStats(GameStats stats) {
         totalScoreView.setText(""+stats.getScore());
@@ -37,24 +34,24 @@ public class StatsView extends LinearLayout {
     private TextView nineSpareView;
 
 
-    public StatsView(Context context) {
+    public SingleGameStatsView(Context context) {
         super(context);
         init();
     }
 
-    public StatsView(Context context, AttributeSet attrs) {
+    public SingleGameStatsView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public StatsView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SingleGameStatsView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
 
     private void init(){
-        inflate(getContext(), R.layout.view_stats, this);
+        inflate(getContext(), R.layout.view_stats_single_game, this);
         totalScoreView = (TextView) findViewById(R.id.scoreView);
         markView = (TextView) findViewById(R.id.marksView);
         strikeView = (TextView) findViewById(R.id.strikesView);

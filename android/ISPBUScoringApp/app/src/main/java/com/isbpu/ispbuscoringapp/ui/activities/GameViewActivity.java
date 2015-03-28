@@ -1,14 +1,14 @@
 package com.isbpu.ispbuscoringapp.ui.activities;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.isbpu.ispbuscoringapp.R;
 import com.isbpu.ispbuscoringapp.database.GameDBEntry;
 import com.isbpu.ispbuscoringapp.ui.views.GameView;
-import com.isbpu.ispbuscoringapp.ui.views.StatsView;
+import com.isbpu.ispbuscoringapp.ui.views.SingleGameStatsView;
 import com.ispbu.scoring.Game;
 
 import java.text.DateFormat;
@@ -21,9 +21,6 @@ public class GameViewActivity extends ActionBarActivity {
     public static final String EXTRA_GAME_DATE = "extra_game_date";
     public static final String EXTRA_SHOW_SAVE_OPTIONS = "extra_show_save_options";
 
-    private GameView gameView;
-    private StatsView statsView;
-
     private Game g = new Game();
 
 
@@ -34,8 +31,8 @@ public class GameViewActivity extends ActionBarActivity {
 
         setResult(RESULT_CANCELED);
 
-        statsView = (StatsView) findViewById(R.id.statsView);
-        gameView = (GameView) findViewById(R.id.gameView);
+        SingleGameStatsView singleGameStatsView = (SingleGameStatsView) findViewById(R.id.statsView);
+        GameView gameView = (GameView) findViewById(R.id.gameView);
 
         Bundle extras = getIntent().getExtras();
         if(savedInstanceState != null && savedInstanceState.containsKey(SAVED_GAME_STATE)){
@@ -60,7 +57,7 @@ public class GameViewActivity extends ActionBarActivity {
             }
         }
         gameView.setGame(g);
-        statsView.updateStats(g.getStats());
+        singleGameStatsView.updateStats(g.getStats());
     }
 
     @Override

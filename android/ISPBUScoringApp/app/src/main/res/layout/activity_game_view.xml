@@ -18,7 +18,7 @@
     <view
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        class="com.isbpu.ispbuscoringapp.ui.views.StatsView"
+        class="com.isbpu.ispbuscoringapp.ui.views.SingleGameStatsView"
         android:id="@+id/statsView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

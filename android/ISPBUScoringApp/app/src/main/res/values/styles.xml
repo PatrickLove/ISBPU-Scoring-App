@@ -8,6 +8,11 @@
     <style name="num_col_style">
         <item name="android:paddingLeft">@dimen/num_col_indent</item>
         <item name="android:minWidth">@dimen/min_numeric_col_width</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
     </style>
 
+    <style name="num_col_style_small" parent="num_col_style">
+        <item name="android:minWidth">@dimen/min_numeric_col_width_small</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
 </resources>

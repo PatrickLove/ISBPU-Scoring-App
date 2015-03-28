@@ -9,9 +9,6 @@ import android.widget.TextView;
 import com.isbpu.ispbuscoringapp.R;
 import com.ispbu.scoring.Frame;
 
-/**
- * Created by Patrick Love on 3/19/2015.
- */
 public class FrameView extends LinearLayout {
 
     private TextView throw1Text;
@@ -21,9 +18,6 @@ public class FrameView extends LinearLayout {
     private TextView scoreText;
 
     private int score;
-    public int getScore() {
-        return score;
-    }
     public void setScore(int score) {
         this.score = score;
         scoreText.setText(score+"");

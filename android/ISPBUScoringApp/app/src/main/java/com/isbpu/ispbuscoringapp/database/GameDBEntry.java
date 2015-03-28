@@ -6,14 +6,12 @@ import android.content.Intent;
 import android.database.Cursor;
 
 import com.isbpu.ispbuscoringapp.ui.activities.GameViewActivity;
-import com.isbpu.ispbuscoringapp.ui.views.GameView;
 import com.ispbu.scoring.Game;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-/**
- * Created by Patrick Love on 3/25/2015.
- */
 public class GameDBEntry {
     private static final long NO_ID = -1;
 
@@ -103,6 +101,14 @@ public class GameDBEntry {
         Intent ret = new Intent(c, GameViewActivity.class);
         ret.putExtra(GameViewActivity.EXTRA_GAME_DATE, date);
         ret.putExtra(GameViewActivity.EXTRA_GAME, game.getThrowArray());
+        return ret;
+    }
+
+    public static List<Game> pullGamesFrom(List<GameDBEntry> entries){
+        List<Game> ret = new ArrayList<>();
+        for(GameDBEntry entry : entries){
+            ret.add(entry.getGame());
+        }
         return ret;
     }
 }

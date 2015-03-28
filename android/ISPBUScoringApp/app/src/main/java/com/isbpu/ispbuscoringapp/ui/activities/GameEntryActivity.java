@@ -1,8 +1,8 @@
 package com.isbpu.ispbuscoringapp.ui.activities;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,7 +13,6 @@ import com.ispbu.scoring.Game;
 
 public class GameEntryActivity extends ActionBarActivity {
 
-    private static final String LOG_TAG ="GameEntryActivity";
     private static final String SAVED_GAME_STATE = "game_data";
     public static final String EXTRA_GAME = "extra_game_data";
     private static final int REQUEST_CODE = 999;

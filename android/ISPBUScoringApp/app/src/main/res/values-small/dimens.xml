@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="min_numeric_col_width">90dp</dimen>
+    <dimen name="min_numeric_col_width_small">50dp</dimen>
+</resources>

@@ -35,5 +35,13 @@
             android:id="@+id/button12"
             android:layout_gravity="center_horizontal"
             android:onClick="onPlayClick" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/career_stats_button"
+            android:id="@+id/button13"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onCareerStatsClick" />
     </LinearLayout>
 </RelativeLayout>

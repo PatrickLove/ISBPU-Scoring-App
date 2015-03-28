@@ -9,9 +9,6 @@ import com.isbpu.ispbuscoringapp.R;
 import com.ispbu.scoring.Game;
 import com.ispbu.scoring.GameScore;
 
-/**
- * Created by Patrick Love on 3/19/2015.
- */
 public class GameView extends LinearLayout {
 
     private FrameView[] frameViews = new FrameView[10];

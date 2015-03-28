@@ -24,6 +24,14 @@
             android:name=".ui.activities.GameEntryActivity"
             android:label="@string/title_activity_game_entry" >
         </activity>
+        <activity
+            android:name=".ui.activities.CareerStatsActivity"
+            android:label="@string/title_activity_carrer_stats"
+            android:parentActivityName=".ui.activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.isbpu.ispbuscoringapp.ui.activities.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

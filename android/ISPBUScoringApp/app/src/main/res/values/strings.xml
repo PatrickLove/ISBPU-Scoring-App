@@ -8,8 +8,8 @@
     <string name="strikes">Strikes:</string>
     <string name="marks">Marks:</string>
     <string name="score">Score:</string>
-    <string name="spf_label">Average Score per Frame:</string>
-    <string name="nine_spare_label">9 Spare Conversion %:</string>
+    <string name="spf_label">Average Score/Frame:</string>
+    <string name="nine_spare_label">9 Spare %:</string>
     <string name="title_activity_game_entry">Play Game</string>
 
     <string name="hello_world">Hello world!</string>
@@ -33,4 +33,14 @@
     <string name="edit_game">Edit Game</string>
     <string name="play">Play Skittle Bowl</string>
     <string name="logo_description">ISBPU Logo</string>
+    <string name="title_activity_carrer_stats">Career Stats</string>
+    <string name="career_stats_button">View Career Stats</string>
+    <string name="std_dev">Standard Deviation:</string>
+    <string name="games">Games:</string>
+    <string name="total_score">Total Score:</string>
+    <string name="avg_score">Average Score:</string>
+    <string name="max_score">Max Score:</string>
+    <string name="min_score">Min Score:</string>
+    <string name="max_marks">Max Marks:</string>
+    <string name="min_marks">Min Marks:</string>
 </resources>
