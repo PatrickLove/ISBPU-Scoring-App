@@ -32,15 +32,23 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/play"
-            android:id="@+id/button12"
+            android:id="@+id/buttonPlay"
             android:layout_gravity="center_horizontal"
             android:onClick="onPlayClick" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:text="@string/show_games"
+            android:id="@+id/buttonGames"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onShowGamesClick" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:text="@string/career_stats_button"
-            android:id="@+id/button13"
+            android:id="@+id/buttonCarrerStats"
             android:layout_gravity="center_horizontal"
             android:onClick="onCareerStatsClick" />
     </LinearLayout>

@@ -2,10 +2,10 @@ package com.isbpu.ispbuscoringapp.database;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
+import android.os.Bundle;
 
-import com.isbpu.ispbuscoringapp.ui.activities.GameViewActivity;
+import com.isbpu.ispbuscoringapp.ui.activities.GameViewFragment;
 import com.ispbu.scoring.Game;
 
 import java.util.ArrayList;
@@ -97,10 +97,10 @@ public class GameDBEntry {
         return db.idQuery(id);
     }
 
-    public Intent getViewIntent(Context c){
-        Intent ret = new Intent(c, GameViewActivity.class);
-        ret.putExtra(GameViewActivity.EXTRA_GAME_DATE, date);
-        ret.putExtra(GameViewActivity.EXTRA_GAME, game.getThrowArray());
+    public Bundle getViewArgs(){
+        Bundle ret = new Bundle();
+        ret.putLong(GameViewFragment.EXTRA_GAME_DATE, date);
+        ret.putIntArray(GameViewFragment.EXTRA_GAME, game.getThrowArray());
         return ret;
     }
 

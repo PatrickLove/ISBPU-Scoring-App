@@ -1,9 +1,7 @@
 package com.isbpu.ispbuscoringapp.ui.activities;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.isbpu.ispbuscoringapp.R;
 import com.isbpu.ispbuscoringapp.database.GameDBEntry;
@@ -14,7 +12,7 @@ import com.ispbu.scoring.MultiGameStats;
 
 import java.util.List;
 
-public class CareerStatsActivity extends ActionBarActivity {
+public class CareerStatsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,30 +21,7 @@ public class CareerStatsActivity extends ActionBarActivity {
         refreshGames();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_career_stats, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.action_refresh) {
-            refreshGames();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     private void refreshGames() {
-
         List<GameDBEntry> gameEntries = GameDatabase.getInstance(this).query(null);
         List<Game> games = GameDBEntry.pullGamesFrom(gameEntries);
         MultiGameStats stats = MultiGameStats.calculateStats(games);

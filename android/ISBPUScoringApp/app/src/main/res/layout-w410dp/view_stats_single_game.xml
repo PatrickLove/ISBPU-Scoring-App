@@ -6,7 +6,7 @@
     <GridLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/gridLayout" >
+        android:id="@+id/mainGridLayout" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/stat_margin"
-        android:id="@+id/gridLayout"
+        android:id="@+id/detailGridLayout"
         style="@style/num_col_style">
 
         <TextView

@@ -1,8 +1,8 @@
 package com.isbpu.ispbuscoringapp.ui.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,7 +11,7 @@ import com.isbpu.ispbuscoringapp.ui.views.GameView;
 import com.ispbu.scoring.Frame;
 import com.ispbu.scoring.Game;
 
-public class GameEntryActivity extends ActionBarActivity {
+public class GameEntryActivity extends Activity {
 
     private static final String SAVED_GAME_STATE = "game_data";
     public static final String EXTRA_GAME = "extra_game_data";
@@ -60,8 +60,8 @@ public class GameEntryActivity extends ActionBarActivity {
         updateButtons();
         if(g.isFinished()){
             Intent intent = new Intent(this, GameViewActivity.class);
-            intent.putExtra(GameViewActivity.EXTRA_GAME, g.getThrowArray());
-            intent.putExtra(GameViewActivity.EXTRA_SHOW_SAVE_OPTIONS, true);
+            intent.putExtra(GameViewFragment.EXTRA_GAME, g.getThrowArray());
+            intent.putExtra(GameViewFragment.EXTRA_SHOW_SAVE_OPTIONS, true);
             startActivityForResult(intent, REQUEST_CODE);
         }
     }

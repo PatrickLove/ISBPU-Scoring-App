@@ -43,4 +43,11 @@
     <string name="min_score">Min Score:</string>
     <string name="max_marks">Max Marks:</string>
     <string name="min_marks">Min Marks:</string>
+    <string name="title_game_list">Games</string>
+    <string name="title_game_detail">Game Detail</string>
+    <string name="show_games">View Game History</string>
+    <string name="cancel_game_title">Are you sure you want to cancel?</string>
+    <string name="cancel_game_message">Canceling the game will delete this score permanently.  Are you sure you want to continue?</string>
+    <string name="saving_title">Saving</string>
+    <string name="saving_game_message">Saving game...</string>
 </resources>
