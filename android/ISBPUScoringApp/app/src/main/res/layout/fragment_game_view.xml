@@ -6,6 +6,11 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.isbpu.ispbuscoringapp.ui.activities.GameViewActivity">
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView2" />
+
     <com.isbpu.ispbuscoringapp.ui.views.GameView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

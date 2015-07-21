@@ -2,6 +2,7 @@ package com.isbpu.ispbuscoringapp.ui.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.isbpu.ispbuscoringapp.R;
 import com.isbpu.ispbuscoringapp.database.GameDBEntry;
@@ -23,6 +24,7 @@ public class CareerStatsActivity extends Activity {
 
     private void refreshGames() {
         List<GameDBEntry> gameEntries = GameDatabase.getInstance(this).query(null);
+        Log.d("ENTRIES", gameEntries.toString());
         List<Game> games = GameDBEntry.pullGamesFrom(gameEntries);
         MultiGameStats stats = MultiGameStats.calculateStats(games);
         if(stats == null) return;

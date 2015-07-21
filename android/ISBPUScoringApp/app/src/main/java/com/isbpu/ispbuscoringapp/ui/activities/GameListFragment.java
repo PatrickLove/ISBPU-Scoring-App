@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.isbpu.ispbuscoringapp.database.GameDBEntry;
 import com.isbpu.ispbuscoringapp.database.GameDatabase;
+import com.isbpu.ispbuscoringapp.ui.views.GameListAdapter;
 
 import java.util.List;
 
@@ -41,11 +42,7 @@ public class GameListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         values = GameDatabase.getInstance(getActivity()).query(null);
-        setListAdapter(new ArrayAdapter<>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                values));
+        setListAdapter(new GameListAdapter(getActivity(), null));
     }
 
     @Override
