@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
 
 
     public void onCareerStatsClick(View v){
-        startActivity(new Intent(this, CareerStatsActivity.class));
+        startActivity(new Intent(this, CarrerStatsActivity.class));
     }
 
     public void onPlayClick(View v){
