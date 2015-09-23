@@ -4,11 +4,9 @@ import android.app.Activity;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.isbpu.ispbuscoringapp.database.GameDBEntry;
-import com.isbpu.ispbuscoringapp.database.GameDatabase;
 import com.isbpu.ispbuscoringapp.ui.views.GameListAdapter;
 
 import java.util.List;

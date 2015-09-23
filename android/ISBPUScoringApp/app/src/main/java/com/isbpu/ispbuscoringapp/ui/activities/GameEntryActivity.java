@@ -88,10 +88,12 @@ public class GameEntryActivity extends Activity {
     }
 
     private void updatedMode(){
-        standingPinCount = PreferenceManager.getDefaultSharedPreferences(this).getString(PREF_ENTRY_MODE,"0").equals(ENTRY_MODE_STANDING);
-        if(standingPinCount){
-            ((Button)numButtons[0]).setText(getString(R.string.ten));
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        standingPinCount = false;
+        if(prefs != null && prefs.contains(PREF_ENTRY_MODE)){
+            standingPinCount = prefs.getString(PREF_ENTRY_MODE,"0").equals(ENTRY_MODE_STANDING);
         }
+        ((Button) numButtons[0]).setText(standingPinCount ? R.string.ten : R.string.zero);
     }
 
     @Override

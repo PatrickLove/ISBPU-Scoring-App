@@ -4,9 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.isbpu.ispbuscoringapp.R;
@@ -14,7 +12,6 @@ import com.isbpu.ispbuscoringapp.database.GameDBEntry;
 import com.isbpu.ispbuscoringapp.database.GameDatabase;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
