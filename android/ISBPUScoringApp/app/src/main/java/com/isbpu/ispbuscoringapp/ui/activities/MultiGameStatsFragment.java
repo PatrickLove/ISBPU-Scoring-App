@@ -28,7 +28,8 @@ public class MultiGameStatsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_multi_game_stats, container, false);
         statsView = (MultiGameStatsView) v.findViewById(R.id.statsView);
         String query = null;
-        if(getArguments().containsKey(ARG_QUERY_STRING)){
+        Bundle args = getArguments();
+        if(args != null && args.containsKey(ARG_QUERY_STRING)){
             query = getArguments().getString(ARG_QUERY_STRING);
         }
         displayStatsForQuery(query);
