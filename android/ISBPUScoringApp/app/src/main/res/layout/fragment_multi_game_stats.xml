@@ -1,6 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.isbpu.ispbuscoringapp.ui.activities.CareerStatsActivity"
+    tools:context="com.isbpu.ispbuscoringapp.ui.activities.MultiGameStatsFragment"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
 

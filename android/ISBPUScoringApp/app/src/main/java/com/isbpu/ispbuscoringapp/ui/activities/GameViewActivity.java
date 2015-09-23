@@ -20,7 +20,7 @@ public class GameViewActivity extends Activity implements GameViewFragment.SaveO
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_view);
+        setContentView(R.layout.activity_fragment_view);
         setResult(RESULT_CANCELED);
 
         GameViewFragment fragment = new GameViewFragment();
