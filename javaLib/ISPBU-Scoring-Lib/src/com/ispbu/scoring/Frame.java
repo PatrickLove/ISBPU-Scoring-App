@@ -34,6 +34,14 @@ public class Frame {
 		return throw1 != 10 && throw1 != NO_SCORE && throw2 == NO_SCORE;
 	}
 	
+	public static int normalize(int t){
+		return t == NO_SCORE ? 0 : t;
+	}
+	
+	public int remainingPins() {
+		return 10 - normalize(throw1) - normalize(throw2);
+	}
+	
 	public int countStrike(){
 		return throw1 == 10 ? 1:0;
 	}

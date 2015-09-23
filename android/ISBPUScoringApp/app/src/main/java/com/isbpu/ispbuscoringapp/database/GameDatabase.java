@@ -4,9 +4,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
+import com.isbpu.ispbuscoringapp.DateUtils;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class GameDatabase extends SQLiteOpenHelper {
@@ -51,12 +53,7 @@ public class GameDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if(oldVersion < 2){
-            db.execSQL("ALTER TABLE " + TABLE_GAMES + " RENAME TO backup; " +
-            CREATE_SQL +
-            "INSERT INTO " + TABLE_GAMES + " SELECT * FROM backup;" +
-            "DROP TABLE backup;");
-        }
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMES + "; " + CREATE_SQL);
     }
 
     public long saveGame(final GameDBEntry gameDBEntry) {
@@ -111,5 +108,8 @@ public class GameDatabase extends SQLiteOpenHelper {
 
     private static String idEquals(long id) {
         return "(" + COLUMN_ID + " = " + id + ")";
+    }
+    private static String dateInRange(Date date1, Date date2) {
+        return "(" + COLUMN_DATE + " BETWEEN " + DateUtils.begin(date1).getTime() + " AND " + DateUtils.end(date2).getTime() + ")";
     }
 }

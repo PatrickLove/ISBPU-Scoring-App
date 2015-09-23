@@ -16,7 +16,7 @@ import java.util.List;
 
 public class GameListFragment extends ListFragment {
 
-
+    private static final String ARG_QUERY_STRING = "querystring";
     private static final String STATE_ACTIVATED_POSITION = "activated_position";
 
 
@@ -28,7 +28,9 @@ public class GameListFragment extends ListFragment {
         }
     };
     private int mActivatedPosition = ListView.INVALID_POSITION;
-    private List<GameDBEntry> values;
+    private List<GameDBEntry> getValues(){
+        return ((GameListAdapter)getListAdapter()).getList();
+    };
 
     public interface Callbacks {
         void onItemSelected(GameDBEntry entry);
@@ -40,9 +42,17 @@ public class GameListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String query = null;
+        Bundle args = getArguments();
+        if(args != null && args.containsKey(ARG_QUERY_STRING)){
+            query = getArguments().getString(ARG_QUERY_STRING);
+        }
+        setListAdapter(new GameListAdapter(getActivity(), query));
+    }
 
-        values = GameDatabase.getInstance(getActivity()).query(null);
-        setListAdapter(new GameListAdapter(getActivity(), null));
+    public void updateForQuery(String query){
+        ((GameListAdapter)getListAdapter()).setQuery(query);
+        setActivatedPosition(0);
     }
 
     @Override
@@ -82,7 +92,7 @@ public class GameListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(values.get(position));
+        mCallbacks.onItemSelected(getValues().get(position));
     }
 
     @Override
@@ -111,8 +121,8 @@ public class GameListFragment extends ListFragment {
             getListView().setItemChecked(mActivatedPosition, false);
         } else {
             getListView().setItemChecked(position, true);
+            mCallbacks.onItemSelected(getValues().get(position));
         }
-
         mActivatedPosition = position;
     }
 }

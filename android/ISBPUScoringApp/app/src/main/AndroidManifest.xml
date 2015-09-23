@@ -33,14 +33,6 @@
                 android:value="com.isbpu.ispbuscoringapp.ui.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".ui.activities.MultiGameStatsFragment"
-            android:label="@string/title_activity_carrer_stats"
-            android:parentActivityName=".ui.activities.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.isbpu.ispbuscoringapp.ui.activities.MainActivity" />
-        </activity>
-        <activity
             android:name=".ui.activities.GameListActivity"
             android:label="@string/title_game_list"
             android:parentActivityName=".ui.activities.MainActivity" >
@@ -51,6 +43,14 @@
         <activity
             android:name=".ui.activities.CarrerStatsActivity"
             android:label="@string/title_activity_carrer_stats"
+            android:parentActivityName=".ui.activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.isbpu.ispbuscoringapp.ui.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.SettingsActivity"
+            android:label="@string/action_settings"
             android:parentActivityName=".ui.activities.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

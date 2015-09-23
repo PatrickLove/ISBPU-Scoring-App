@@ -50,4 +50,6 @@
     <string name="cancel_game_message">Canceling the game will delete this score permanently.  Are you sure you want to continue?</string>
     <string name="saving_title">Saving</string>
     <string name="saving_game_message">Saving game...</string>
+    <string name="ten">10</string>
+    <string name="entry_mode">Entry Mode</string>
 </resources>

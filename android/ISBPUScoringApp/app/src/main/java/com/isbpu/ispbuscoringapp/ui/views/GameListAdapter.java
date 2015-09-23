@@ -73,4 +73,8 @@ public class GameListAdapter extends BaseAdapter {
 
         return v;
     }
+
+    public List<GameDBEntry> getList() {
+        return values;
+    }
 }

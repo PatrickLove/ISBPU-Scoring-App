@@ -116,6 +116,11 @@ public class Game {
 		if(isFinished()) return false;
 		return frames[currentFrame].canSpare();
 	}
+	
+	public int getRemainingPins(){
+		if(isFinished()) return 0;
+		return frames[currentFrame].remainingPins();
+	}
 
 	@Override
 	public String toString() {

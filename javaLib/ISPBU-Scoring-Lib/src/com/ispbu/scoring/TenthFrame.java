@@ -70,6 +70,23 @@ public class TenthFrame extends Frame {
 		return false;
 	}
 	
+	public int remainingPins() {
+		if(throw1 == 10){
+			if(throw2 == 10){
+				return 10 - normalize(throw3);
+			}
+			else{
+				return 10 - normalize(throw2) - normalize(throw3);
+			}
+		}
+		else if(throw2 + throw1 == 10){
+			return 10 - normalize(throw3);
+		}
+		else{
+			return 10-normalize(throw1)-normalize(throw2);
+		}
+	}
+	
 	public boolean doThrow(int score){
 		if(!isFinished() && score <= 10 && score != NO_SCORE){
 			if(score == MAKE_SPARE){

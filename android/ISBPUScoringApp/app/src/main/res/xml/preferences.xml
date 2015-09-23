@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:defaultValue="0"
+        android:key="entry_mode"
+        android:title="@string/entry_mode"
+        android:entries="@array/entry_type_names"
+        android:entryValues="@array/entry_type_vals"/>
+</PreferenceScreen>
