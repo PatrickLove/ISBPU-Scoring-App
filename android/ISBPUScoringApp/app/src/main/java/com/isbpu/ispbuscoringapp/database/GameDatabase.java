@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 public class GameDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "game_database";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
     private static GameDatabase instance;
 
     public static GameDatabase getInstance(Context c){
@@ -36,11 +37,11 @@ public class GameDatabase extends SQLiteOpenHelper {
                 "CREATE TABLE " + TABLE_GAMES + " ( " +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_DATE + " INTEGER, " +
-                COLUMN_THROWS + " STRING NOT NULL " +
+                COLUMN_THROWS + " TEXT NOT NULL " +
             ");";
 
     public GameDatabase(Context c){
-        super(c,DATABASE_NAME,null,DB_VERSION);
+        super(c, DATABASE_NAME, null, DB_VERSION);
     }
 
     @Override
@@ -50,8 +51,12 @@ public class GameDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_GAMES);
-        db.execSQL(CREATE_SQL);
+        if(oldVersion < 2){
+            db.execSQL("ALTER TABLE " + TABLE_GAMES + " RENAME TO backup; " +
+            CREATE_SQL +
+            "INSERT INTO " + TABLE_GAMES + " SELECT * FROM backup;" +
+            "DROP TABLE backup;");
+        }
     }
 
     public long saveGame(final GameDBEntry gameDBEntry) {

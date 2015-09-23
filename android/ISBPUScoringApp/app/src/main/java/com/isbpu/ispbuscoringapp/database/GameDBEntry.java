@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.isbpu.ispbuscoringapp.ui.activities.GameViewFragment;
 import com.ispbu.scoring.Game;
@@ -77,7 +78,9 @@ public class GameDBEntry {
     private static String encodeGameThrows(Game g){
         String ret = "";
         for(int i : g.getThrowArray()){
-            ret += (char)(i+CHAR_OFFSET);
+            char c = (char)(i+CHAR_OFFSET);
+            Log.d("STRING ADD", ret + " + " + c + " = " + (ret+c));
+            ret += c;
         }
         return ret;
     }
