@@ -94,6 +94,7 @@ public class GameEntryActivity extends Activity {
             standingPinCount = prefs.getString(PREF_ENTRY_MODE,"0").equals(ENTRY_MODE_STANDING);
         }
         ((Button) numButtons[0]).setText(standingPinCount ? R.string.ten : R.string.zero);
+        updateButtons();
     }
 
     @Override
@@ -135,6 +136,7 @@ public class GameEntryActivity extends Activity {
     public void onUndoPress(View v){
         g.undoThrow();
         gameView.notifyGameChanged();
+        updateButtons();
     }
 
     private void disableNums(int remaining){

@@ -3,7 +3,10 @@ package com.isbpu.ispbuscoringapp.ui.activities;
 import android.app.Activity;
 import android.app.ListFragment;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.isbpu.ispbuscoringapp.database.GameDBEntry;
@@ -112,13 +115,20 @@ public class GameListFragment extends ListFragment {
         getListView().setChoiceMode(activateOnItemClick
                 ? ListView.CHOICE_MODE_SINGLE
                 : ListView.CHOICE_MODE_NONE);
+        getListView().setSelector(android.R.color.holo_blue_dark);
     }
 
-    private void setActivatedPosition(int position) {
-        if (position == ListView.INVALID_POSITION) {
-            getListView().setItemChecked(mActivatedPosition, false);
-        } else {
+    public void setActivatedPosition(int position) {
+        Log.d("POS", "ACTIVATING INDEX " + position);
+        getListView().setItemChecked(mActivatedPosition, false);
+        if (position != ListView.INVALID_POSITION) {
+            Log.d("POS", "NOT INVALID");
             getListView().setItemChecked(position, true);
+            getListView().setSelection(position);
+            if(getListView().getSelectedView() != null){
+                getListView().getSelectedView().performClick();
+            }
+            else Log.e("NO SELECTION", "NO SELECTION");
             mCallbacks.onItemSelected(getValues().get(position));
         }
         mActivatedPosition = position;

@@ -52,11 +52,11 @@ public class GameListActivity extends Activity
         if (findViewById(R.id.game_detail_container) != null) {
             mTwoPane = true;
 
-            ((GameListFragment) getFragmentManager()
-                    .findFragmentById(R.id.game_list))
-                    .setActivateOnItemClick(true);
+            GameListFragment frag = ((GameListFragment) getFragmentManager()
+                    .findFragmentById(R.id.game_list));
+            frag.setActivateOnItemClick(true);
         }
-        else if(savedInstanceState == null){
+        else{
             GameListFragment defaultFrag = new GameListFragment();
             getFragmentManager().beginTransaction().add(R.id.fragment_container, defaultFrag).commit();
         }
