@@ -58,10 +58,12 @@ public class GameViewFragment extends Fragment {
 
         Bundle extras = getArguments();//getIntent().getExtras();
         if(savedInstanceState != null && savedInstanceState.containsKey(SAVED_GAME_STATE)){
+            //noinspection ConstantConditions
             g.makeThrows(savedInstanceState.getIntArray(SAVED_GAME_STATE));
         }
         else if(extras != null){
             if(extras.containsKey(EXTRA_GAME)){
+                //noinspection ConstantConditions
                 g.makeThrows(extras.getIntArray(EXTRA_GAME));
                 if(extras.containsKey(EXTRA_GAME_DATE)){
                     long dateMillis = extras.getLong(EXTRA_GAME_DATE);
@@ -71,7 +73,7 @@ public class GameViewFragment extends Fragment {
                     ((TextView)v.findViewById(R.id.dateView)).setText(dateText);
                 }
             }
-            if(extras.containsKey(EXTRA_SHOW_SAVE_OPTIONS) && extras.getBoolean(EXTRA_SHOW_SAVE_OPTIONS)){
+            if(extras.getBoolean(EXTRA_SHOW_SAVE_OPTIONS, false)){
                 if (!(getActivity() instanceof SaveOptionsHandler)) {
                     throw new IllegalStateException("Activity must implement fragment's callbacks.");
                 }

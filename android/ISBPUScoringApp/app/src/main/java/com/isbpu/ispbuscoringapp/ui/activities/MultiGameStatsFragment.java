@@ -29,7 +29,7 @@ public class MultiGameStatsFragment extends Fragment {
         statsView = (MultiGameStatsView) v.findViewById(R.id.statsView);
         String query = null;
         Bundle args = getArguments();
-        if(args != null && args.containsKey(ARG_QUERY_STRING)){
+        if(args != null){
             query = getArguments().getString(ARG_QUERY_STRING);
         }
         displayStatsForQuery(query);

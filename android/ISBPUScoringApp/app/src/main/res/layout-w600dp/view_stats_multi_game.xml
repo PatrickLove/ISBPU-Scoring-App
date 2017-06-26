@@ -193,79 +193,78 @@
     </GridLayout>
 
     <GridLayout
+        android:id="@+id/gridLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/stat_margin"
-        android:id="@+id/gridLayout"
-        style="@style/num_col_style">
+        android:layout_marginTop="@dimen/stat_margin">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/amb_label"
             android:id="@+id/textView6"
-            android:layout_row="0"
-            android:layout_column="0" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/spf_label"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:text="@string/amb_label"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
             android:id="@+id/textView7"
-            android:layout_row="1"
-            android:layout_column="0" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:text="@string/spf_label"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
             android:id="@+id/bonusView"
-            android:layout_row="0"
-            android:layout_column="1"
-            style="@style/num_col_style" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/nine_spare_label"
-            android:id="@+id/textView8"
-            android:layout_row="2"
-            android:layout_column="0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spfView"
-            android:layout_row="1"
-            android:layout_column="1"
-            style="@style/num_col_style" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Standard Deviation:"
-            android:id="@+id/textView15"
-            android:layout_row="3"
-            android:layout_column="0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/nineSpareView"
-            android:layout_row="2"
-            android:layout_column="1"
-            style="@style/num_col_style" />
-
-        <TextView
             style="@style/num_col_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/stdDevView"
+            android:layout_column="1"
+            android:layout_row="0" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:text="@string/nine_spare_label"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/spfView"
+            style="@style/num_col_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
             android:layout_row="3"
-            android:layout_column="1" />
+            android:text="Standard Deviation:"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/nineSpareView"
+            style="@style/num_col_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="2" />
+
+        <TextView
+            android:id="@+id/stdDevView"
+            style="@style/num_col_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="3" />
     </GridLayout>
 
 </LinearLayout>
